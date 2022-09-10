@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <title>Emissivity Measurement Apparatus</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <div class="top-container">
+    <h2>Emissivity Measurement Apparatus</h2>
+  </div>
+  <hr color="white">
+  <form>
+    <div class="form-group">
+      <!-- <label for="Temp">Enter Required Data Below</label> -->
+      <br>
+      <label for="HS">Steady Steady Temperatures of Black Body</label>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text">T<sub>1</sub></span>
+        <input type="number" class="form-control" id="T1" placeholder="Enter Temperature in ᵒC" aria-label="Username"
+          aria-describedby="basic-addon1">
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text">T<sub>2</sub></span>
+        <input type="number" class="form-control" id="T2" placeholder="Enter Temperature in ᵒC" aria-label="Username"
+          aria-describedby="basic-addon1">
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text">T<sub>3</sub></span>
+        <input type="number" class="form-control" id="T3" placeholder="Enter Temperature in ᵒC" aria-label="Username"
+          aria-describedby="basic-addon1">
+      </div>
+
+      <label for="HS">Steady Steady Temperatures of Polished Body</label>
+      <div class="input-group mb-3">
+        <span class="input-group-text">T<sub>4</sub></span>
+        <input type="number" class="form-control" id="T4" placeholder="Enter Temperature in ᵒC" aria-label="Username"
+          aria-describedby="basic-addon1">
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text">T<sub>5</sub></span>
+        <input type="number" class="form-control" id="T5" placeholder="Enter Temperature in ᵒC" aria-label="Username"
+          aria-describedby="basic-addon1">
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text" >T<sub>6</sub></span>
+        <input type="number" class="form-control" id="T6" placeholder="Enter Temperature in ᵒC" aria-label="Username"
+          aria-describedby="basic-addon1">
+      </div>
+
+      <label for="HS">Steady Steady Temperature of Chamber</label>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">T<sub>7</sub></span>
+        <input type="number" class="form-control" id="T7" placeholder="Enter Temperature in ᵒC" aria-label="Username"
+          aria-describedby="basic-addon1">
+      </div>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary" id="btn">Calculate</button>
+  </form>
+  <br>
+  <hr color="white">
+  <br>
+  <h5 id="new">Values Used:</h5>
+  <ol>
+    <li>Emissivity of Black body  ε<sub>b:</sub> 1</li>
+    <li>Stefan's Constant σ: 5.67 * 10 <sup>-8 </sup>w/m<sup>2</sup>K<sup>4</sup></li>
+    <li>Diameter of the circular plate: 0.15 m</li>
+  </ol>
+  <script src="js/emissivity.js">
+
+  </script>
+</body>
+
+</html>

@@ -15,7 +15,7 @@ function calc() {
   var del_T1 = T1 - T3;
   var del_T2 = T2 - T4;
   var LMTD = (del_T1 - del_T2) ;
-  var A = 3.14 * 0.015 * 1.8;
+  var A = Math.PI * 0.015 * 1.8;
   var U = q / (A * LMTD);
 
   if (!Mh || !Mc || !T1 || !T2 || !T3 || !T4) {

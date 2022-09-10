@@ -25,7 +25,7 @@ function calc() {
   var b = 20+12+12;
   var d = 0.2;
 
-  var A = (3.14*d*d)/4;
+  var A = (Math.PI*d*d)/4;
   var q = Q/A;
   var R_Total = (Ta-Td)/q;
   var K_composite = b/R_Total;
