@@ -16,7 +16,7 @@ function calc() {
   var Tc = (T5+T6)/2;
   var Td = (T7+T8)/2;
 
-  if (Ta - Td ==0 || !T1 || !T2 || !T7 || !T8) {
+  if (Ta - Td ==0 || !T1 || !T2 || !T7 || !T8 || !Q) {
     alert("Please provide correct data!");
     return;
   }
@@ -31,12 +31,12 @@ function calc() {
   var K_composite = b/R_Total;
 
   alert(
-    "Total Thermal Resistance of Composite Slab " +
-      R_Total +
+    "Total Thermal Resistance of Composite Slab:  " +
+      R_Total.toFixed(3) +
       " Kg/s" +
       "\r\n" +
-      "Total thermal Conductivity of composite slab " +
-      K_composite +
+      "Total Thermal Conductivity of Composite slab:  " +
+      K_composite.toFixed(3) +
       " m3/s"
   );
 }
