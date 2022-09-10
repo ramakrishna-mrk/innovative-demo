@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <title>Heat Flow Through Composite Wall</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <div class="top-container">
+    <h2>Heat Flow Through Composite Wall</h2>
+  </div>
+  <hr color="white">
+  <form>
+    <div class="form-group">
+      <label for="Temp">Enter Steady State Temperatures from T<sub>1</sub> to T<sub>8</sub> in <sup>o</sup>C</label>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">T<sub>1</sub></span>
+        <input type="text" class="form-control" id="T1" placeholder="Enter Temperature" aria-label="Username"
+          aria-describedby="basic-addon1">
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">T<sub>2</sub></span>
+        <input type="text" class="form-control" id="T2" placeholder="Enter Temperature" aria-label="Username"
+          aria-describedby="basic-addon1">
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">T<sub>3</sub></span>
+        <input type="text" class="form-control" id="T3" placeholder="Enter Temperature" aria-label="Username"
+          aria-describedby="basic-addon1">
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">T<sub>4</sub></span>
+        <input type="text" class="form-control" id="T4" placeholder="Enter Temperature" aria-label="Username"
+          aria-describedby="basic-addon1">
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">T<sub>5</sub></span>
+        <input type="text" class="form-control" id="T5" placeholder="Enter Temperature" aria-label="Username"
+          aria-describedby="basic-addon1">
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">T<sub>6</sub></span>
+        <input type="text" class="form-control" id="T6" placeholder="Enter Temperature" aria-label="Username"
+          aria-describedby="basic-addon1">
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">T<sub>7</sub></span>
+        <input type="text" class="form-control" id="T7" placeholder="Enter Temperature" aria-label="Username"
+          aria-describedby="basic-addon1">
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">T<sub>8</sub></span>
+        <input type="text" class="form-control" id="T8" placeholder="Enter Temperature" aria-label="Username"
+          aria-describedby="basic-addon1">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="HS">Heat Supplied</label>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Q (in Watts)</span>
+        <input type="text" class="form-control" id="hs" placeholder="Enter Heat Supplied" aria-label="Username"
+          aria-describedby="basic-addon1">
+      </div>
+    </div>
+    <!-- <div class="form-group">
+      <label for="HS">Heat Supplied</label>
+      <input type="text" class="form-control" id="hs" aria-describedby="">
+    </div> -->
+    <button type="submit" class="btn btn-primary" id="btn">Get Data</button>
+  </form>
+  <br><br><br>
+  <h5 id="new">Values Used:</h5>
+  <ol>
+    <li>Diameter of Disc: 0.2 m</li>
+    <li>Thickness of Slab: 0.044 m</li>
+    <li>Thermal Conductivity of Mild Steel: 45 watts/m <sup>o</sup> C</li>
+    <li>Thermal Conductivity of Bakelite: 1.4 watts/m <sup>o</sup> C</li>
+    <li>Thermal Conductivity of Wood: 0.173 watts/m <sup>o</sup> C</li>
+  </ol>
+  <script src="js/compositewall.js">
+
+  </script>
+</body>
+
+</html>
