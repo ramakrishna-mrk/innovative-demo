@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <title>Counter Flow Double Pipe Heat Exchanger</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <div class="top-container">
+    <h2>Counter Flow Double Pipe Heat Exchanger</h2>
+  </div>
+  <hr color="white">
+  <form>
+    <div class="form-group">
+      <!-- <label for="Temp">Enter Required Data Below</label> -->
+      <br>
+      <label for="HS">Flow rates</label>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Q<sub>h</sub></span>
+        <input type="number" class="form-control" id="Mh" placeholder="Hot water flow rate in ml/s" aria-label="Username"
+          aria-describedby="basic-addon1">
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Q<sub>c</sub></span>
+        <input type="number" class="form-control" id="Mc" placeholder="Cold water flow rate in ml/s" aria-label="Username"
+          aria-describedby="basic-addon1">
+      </div>
+
+      <label for="HS">Hot water inlet and outlet Temperatures</label>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">T<sub>1</sub></span>
+        <input type="number" class="form-control" id="T1" placeholder="Hot water inlet temperature ᵒC" aria-label="Username"
+          aria-describedby="basic-addon1">
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">T<sub>2</sub></span>
+        <input type="number" class="form-control" id="T2" placeholder="Hot water outlet temperature ᵒC" aria-label="Username"
+          aria-describedby="basic-addon1">
+      </div>
+
+      <label for="HS">Cold water inlet and outlet Temperatures</label>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">T<sub>3</sub></span>
+        <input type="number" class="form-control" id="T3" placeholder="Cold water inlet temperature ᵒC" aria-label="Username"
+          aria-describedby="basic-addon1">
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">T<sub>4</sub></span>
+        <input type="number" class="form-control" id="T4" placeholder="Cold water outlet temperature ᵒC" aria-label="Username"
+          aria-describedby="basic-addon1">
+      </div>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary" id="btn">Calculate</button>
+  </form>
+  <br>
+  <hr color="white">
+  <br>
+  <h5 id="new">Values Used:</h5>
+  <ol>
+    <li>Outer diameter of inner pipe: 0.015 m </li>
+    <li>Length of pipe: 1.8 m </li>
+  </ol>
+  <script src="js/counterflow.js">
+
+  </script>
+</body>
+
+</html>
