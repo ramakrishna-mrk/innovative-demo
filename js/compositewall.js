@@ -26,7 +26,7 @@ function calc() {
 
   const output = document.getElementById("output");
   if (Ta - Td == 0 || !T1 || !T2 || !T7 || !T8 || !Q) {
-    output.innerHTML = "Invalid Data <br> Hello";
+    output.innerHTML = "Invalid Data";
   } else {
     output.innerHTML =
       "Total Thermal Resistance of Composite Slab:  " +
