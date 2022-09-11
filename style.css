@@ -1,9 +1,7 @@
 .top-container {
-  /* background-color: #b8fff9; */
   background-color: #e9da0a;
   position: relative;
   padding: 5px;
-  /* border-style: dotted; */
   border-width: 5px;
   border-style:double;
   text-align: center;
@@ -27,9 +25,10 @@ a
   font-size: 30px;
   text-decoration: underline;
 }
-form{
+form,label{
   color: yellow;
 }
+
 list
 {
   color: yellow;

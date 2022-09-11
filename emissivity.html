@@ -69,25 +69,25 @@
     </div>
 
     <br>
-
-    <button type="button" class="btn btn-primary" id="btn" onclick="calc()">Calculate</button>
-
+    <button href="#results" type="button" class="btn btn-primary" id="btn" onclick="calc()">Calculate</button>
     <br><br>
   </form>
 
   <br>
 
-  <div class="d-flex justify-content-center">
-    <div class="spinner-border text-light" role="status"  id = "hspinner" style="display: none">
-      <span class="visually-hidden">Loading...</span>
+  <div id="results" style = "display: none">
+    <label style="text-align:left;" for="HS">Results</label>
+    <div class="d-flex justify-content-center">
+      <div id="hspinner" class="spinner-border text-light" role="status" style = "display: none">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+    <div id="output" class="alert alert-primary" role="alert" style = "display: none">
+      Emissivity Test Surface:
     </div>
   </div>
-  
-  <form name="results" id = "hresults" style="display: none;">
-    <label for="HS">Results</label>
-    <input type="text" class="form-control" name="textview" placeholder="Emissivity Test Surface: "
-      aria-label="Username" aria-describedby="basic-addon1">
-  </form>
+
+
 
 
   <hr color="white">

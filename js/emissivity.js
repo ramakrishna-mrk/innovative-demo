@@ -22,16 +22,19 @@ function calc() {
     alert("Please provide correct data!");
     return;
   }
-  document.getElementById("hresults").style.display = "none";
+  const output = document.getElementById("output");
+  output.textContent = "Emissivity Test Surface: " + Ep.toFixed(3);
+  
+  parent.location='#results';
+  document.getElementById("output").style.display = "none";
+  document.getElementById("results").style.display = "block";
   document.getElementById("hspinner").style.display = "block";
   setTimeout(function () {
     document.getElementById("hspinner").style.display = "none";
   }, 1000);
 
   setTimeout(function () {
-    document.getElementById("hresults").style.display = "block";
-    document.results.textview.value =
-      "Emissivity Test Surface: " + Ep.toFixed(3);
+    document.getElementById("output").style.display = "block";
   }, 1000);
 
   // alert("Emissivity Test Surface: " + Ep.toFixed(3));
