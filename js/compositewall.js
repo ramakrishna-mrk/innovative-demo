@@ -30,7 +30,7 @@ function calc() {
   } else {
     output.textContent =
       "Total Thermal Resistance of Composite Slab:  " +
-      R_Total.toFixed(3) + " Kg/s" + newline+
+      R_Total.toFixed(3) + " Kg/s" + newline + newline + 
       "Total Thermal Conductivity of Composite slab:  " +
       K_composite.toFixed(3) + " m3/s";
   }

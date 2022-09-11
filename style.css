@@ -26,18 +26,16 @@ a {
 form,
 label {
   color: yellow;
-}
-
-label {
   padding: 8px 0;
   font-size: 1rem;
 }
+
 .form-control {
   font-size: 0.85rem;
 }
 #output {
   white-space: pre;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 hr {
   color: #fff;
