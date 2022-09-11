@@ -17,7 +17,7 @@
     <h2>Emissivity Measurement Apparatus</h2>
   </div>
   <hr color="white">
-  <form>
+  <form name="form">
     <div class="form-group">
       <!-- <label for="Temp">Enter Required Data Below</label> -->
       <br>
@@ -55,7 +55,7 @@
       </div>
 
       <div class="input-group mb-3">
-        <span class="input-group-text" >T<sub>6</sub></span>
+        <span class="input-group-text">T<sub>6</sub></span>
         <input type="number" class="form-control" id="T6" placeholder="Enter Temperature in ᵒC" aria-label="Username"
           aria-describedby="basic-addon1">
       </div>
@@ -67,21 +67,38 @@
           aria-describedby="basic-addon1">
       </div>
     </div>
+
     <br>
-    <button type="submit" class="btn btn-primary" id="btn">Calculate</button>
+
+    <button type="button" class="btn btn-primary" id="btn" onclick="calc()">Calculate</button>
+
+    <br><br>
   </form>
+
   <br>
+
+  <div class="d-flex justify-content-center">
+    <div class="spinner-border text-light" role="status"  id = "hspinner" style="display: none">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+  
+  <form name="results" id = "hresults" style="display: none;">
+    <label for="HS">Results</label>
+    <input type="text" class="form-control" name="textview" placeholder="Emissivity Test Surface: "
+      aria-label="Username" aria-describedby="basic-addon1">
+  </form>
+
+
   <hr color="white">
   <br>
   <h5 id="new">Values Used:</h5>
   <ol>
-    <li>Emissivity of Black body  ε<sub>b:</sub> 1</li>
+    <li>Emissivity of Black body ε<sub>b:</sub> 1</li>
     <li>Stefan's Constant σ: 5.67 * 10 <sup>-8 </sup>w/m<sup>2</sup>K<sup>4</sup></li>
     <li>Diameter of the circular plate: 0.15 m</li>
   </ol>
-  <script src="js/emissivity.js">
-
-  </script>
+  <script src="js/emissivity.js"></script>
 </body>
 
 </html>
