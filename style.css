@@ -31,7 +31,7 @@ form,label{
 
 label{
   padding: 8px 0;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
 }
 .form-control{
   font-size: 0.85rem;
@@ -69,7 +69,7 @@ h2
   font-style: oblique;
   font-stretch: normal;
 }
-#values-used
+.h5
 {
   color: white;
   opacity:0.7;

@@ -3,8 +3,6 @@
 
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css">
@@ -16,12 +14,11 @@
   <div class="top-container">
     <h2>Counter Flow Double Pipe Heat Exchanger</h2>
   </div>
-  <hr color="white">
+  <hr>
   <form>
     <div class="form-group">
-      <!-- <label for="Temp">Enter Required Data Below</label> -->
       <br>
-      <label for="HS">Flowrates</label>
+      <label for="HS">Flow Rates</label>
 
       <div class="input-group mb-3">
         <span class="input-group-text" >Q<sub>h</sub></span>
@@ -61,13 +58,29 @@
           aria-describedby="basic-addon1">
       </div>
     </div>
+    
     <br>
-    <button type="submit" class="btn btn-primary" id="btn">Calculate</button>
+    <button href="#results" type="button" class="btn btn-primary" id="btn" onclick="calc()">Calculate</button>
+    <br><br>
   </form>
+
   <br>
-  <hr color="white">
+
+  <div id="results" style = "display: none">
+    <label style="text-align:left;" for="HS">Results</label>
+    <div class="d-flex justify-content-center">
+      <div id="hspinner" class="spinner-border text-light" role="status" style = "display: none">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+    <div id="output" class="alert alert-primary" role="alert" style = "display: none">
+      Emissivity Test Surface:
+    </div>
+  </div>
+
+  <hr>
   <br>
-  <h5 id="new">Values Used:</h5>
+  <h5 class="h5">Values Used:</h5>
   <ol>
     <li>Outer diameter of inner pipe: 0.015 m </li>
     <li>Length of pipe: 1.8 m </li>

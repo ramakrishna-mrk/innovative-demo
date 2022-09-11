@@ -1,5 +1,3 @@
-var btn = document.getElementById("btn");
-btn.addEventListener("click", calc);
 function calc() {
   var T1 = parseFloat(document.getElementById("T1").value);
   var T2 = parseFloat(document.getElementById("T2").value);
@@ -11,32 +9,45 @@ function calc() {
   var T8 = parseFloat(document.getElementById("T8").value);
   var Q = parseFloat(document.getElementById("hs").value);
 
-  var Ta = (T1+T2)/2;
-  var Tb = (T3+T4)/2;
-  var Tc = (T5+T6)/2;
-  var Td = (T7+T8)/2;
-
-  if (Ta - Td ==0 || !T1 || !T2 || !T7 || !T8 || !Q) {
-    alert("Please provide correct data!");
-    return;
-  }
+  var Ta = (T1 + T2) / 2;
+  var Tb = (T3 + T4) / 2;
+  var Tc = (T5 + T6) / 2;
+  var Td = (T7 + T8) / 2;
 
   //Fixed Data
-  var b = 20+12+12;
+  var b = 20 + 12 + 12;
   var d = 0.2;
 
-  var A = (Math.PI*d*d)/4;
-  var q = Q/A;
-  var R_Total = (Ta-Td)/q;
-  var K_composite = b/R_Total;
+  var A = (Math.PI * d * d) / 4;
+  var q = Q / A;
+  var R_Total = (Ta - Td) / q;
+  var K_composite = b / R_Total;
 
-  alert(
-    "Total Thermal Resistance of Composite Slab:  " +
+  const output = document.getElementById("output");
+  if (Ta - Td == 0 || !T1 || !T2 || !T7 || !T8 || !Q) {
+    output.textContent = "Invalid Data";
+  } else {
+    output.textContent =
+      "Total Thermal Resistance of Composite Slab:  " +
       R_Total.toFixed(3) +
-      " Kg/s" +
-      "\r\n" +
+      " Kg/s";
+
+    output.textContent += "\r\n";
+
+    output.textContent +=
       "Total Thermal Conductivity of Composite slab:  " +
-      K_composite.toFixed(3) +
-      " m3/s"
-  );
+      K_composite.toFixed(3) + " m3/s";
+  }
+
+  parent.location = "#results";
+  document.getElementById("output").style.display = "none";
+  document.getElementById("results").style.display = "block";
+  document.getElementById("hspinner").style.display = "block";
+  setTimeout(function () {
+    document.getElementById("hspinner").style.display = "none";
+  }, 1000);
+
+  setTimeout(function () {
+    document.getElementById("output").style.display = "block";
+  }, 1000);
 }

@@ -17,11 +17,23 @@ function calc() {
   var LMTD = (del_T1 - del_T2) ;
   var A = Math.PI * 0.015 * 1.8;
   var U = q / (A * LMTD);
-
+  
+  const output = document.getElementById("output");
   if (!Mh || !Mc || !T1 || !T2 || !T3 || !T4) {
-    alert("Please provide correct data!");
-    return;
+    output.textContent = "Invalid Data"
+  } else {
+    output.textContent = "Overall Heat Transfer Coefficient:  " + U.toFixed(3);
   }
 
-  alert("Overall Heat Transfer Coefficient:  " + U.toFixed(3));
+  parent.location='#results';
+  document.getElementById("output").style.display = "none";
+  document.getElementById("results").style.display = "block";
+  document.getElementById("hspinner").style.display = "block";
+  setTimeout(function () {
+    document.getElementById("hspinner").style.display = "none";
+  }, 1000);
+
+  setTimeout(function () {
+    document.getElementById("output").style.display = "block";
+  }, 1000);
 }
