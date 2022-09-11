@@ -34,7 +34,7 @@ label {
   font-size: 0.85rem;
 }
 #output {
-  white-space: pre;
+  /* white-space: pre; */
   font-size: 0.85rem;
 }
 hr {

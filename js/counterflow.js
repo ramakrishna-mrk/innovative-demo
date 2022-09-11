@@ -20,9 +20,9 @@ function calc() {
 
   const output = document.getElementById("output");
   if (!Mh || !Mc || !T1 || !T2 || !T3 || !T4) {
-    output.textContent = "Invalid Data"
+    output.innerHTML = "Invalid Data"
   } else {
-    output.textContent = "Overall Heat Transfer Coefficient:  " + U.toFixed(3);
+    output.innerHTML = "Overall Heat Transfer Coefficient:  " + U.toFixed(3);
   }
 
   parent.location='#results';

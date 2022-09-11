@@ -26,11 +26,11 @@ function calc() {
 
   const output = document.getElementById("output");
   if (Ta - Td == 0 || !T1 || !T2 || !T7 || !T8 || !Q) {
-    output.textContent = "Invalid Data";
+    output.innerHTML = "Invalid Data <br> Hello";
   } else {
-    output.textContent =
+    output.innerHTML =
       "Total Thermal Resistance of Composite Slab:  " +
-      R_Total.toFixed(3) + " Kg/s" + newline + newline + 
+      R_Total.toFixed(3) + " Kg/s <br>" + 
       "Total Thermal Conductivity of Composite slab:  " +
       K_composite.toFixed(3) + " m3/s";
   }

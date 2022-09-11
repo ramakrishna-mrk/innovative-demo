@@ -18,9 +18,9 @@ function calc() {
 
   const output = document.getElementById("output");
   if (Tp4==Tc4 || !Tb || !Tp || !Tc ) {
-    output.textContent = "Invalid Data"
+    output.innerHTML = "Invalid Data"
   } else {
-    output.textContent = "Emissivity Test Surface: " + Ep.toFixed(3);
+    output.innerHTML = "Emissivity Test Surface: " + Ep.toFixed(3);
   }
 
   parent.location='#results';
