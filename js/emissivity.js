@@ -26,7 +26,6 @@ function calc() {
     output.textContent = "Emissivity Test Surface: " + Ep.toFixed(3);
   }
   
-  
   parent.location='#results';
   document.getElementById("output").style.display = "none";
   document.getElementById("results").style.display = "block";
