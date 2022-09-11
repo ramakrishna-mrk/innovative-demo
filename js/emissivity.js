@@ -18,12 +18,14 @@ function calc() {
   var Tc4 = Tc * Tc * Tc * Tc;
   var Ep = (Tb4 - Tc4) / (Tp4 - Tc4);
 
-  if (Tp4==Tc4 || !Tb || !Tp || !Tc ) {
-    alert("Please provide correct data!");
-    return;
-  }
+  
   const output = document.getElementById("output");
-  output.textContent = "Emissivity Test Surface: " + Ep.toFixed(3);
+  if (Tp4==Tc4 || !Tb || !Tp || !Tc ) {
+    output.textContent = "Invalid Data"
+  } else {
+    output.textContent = "Emissivity Test Surface: " + Ep.toFixed(3);
+  }
+  
   
   parent.location='#results';
   document.getElementById("output").style.display = "none";
