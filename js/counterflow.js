@@ -17,7 +17,7 @@ function calc() {
   var LMTD = (del_T1 - del_T2) ;
   var A = Math.PI * 0.015 * 1.8;
   var U = q / (A * LMTD);
-  
+
   const output = document.getElementById("output");
   if (!Mh || !Mc || !T1 || !T2 || !T3 || !T4) {
     output.textContent = "Invalid Data"
@@ -31,9 +31,9 @@ function calc() {
   document.getElementById("hspinner").style.display = "block";
   setTimeout(function () {
     document.getElementById("hspinner").style.display = "none";
-  }, 1000);
+  }, 500);
 
   setTimeout(function () {
     document.getElementById("output").style.display = "block";
-  }, 1000);
+  }, 500);
 }

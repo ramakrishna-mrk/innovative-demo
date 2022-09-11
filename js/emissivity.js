@@ -29,9 +29,9 @@ function calc() {
   document.getElementById("hspinner").style.display = "block";
   setTimeout(function () {
     document.getElementById("hspinner").style.display = "none";
-  }, 1000);
+  }, 500);
 
   setTimeout(function () {
     document.getElementById("output").style.display = "block";
-  }, 1000);
+  }, 500);
 }
