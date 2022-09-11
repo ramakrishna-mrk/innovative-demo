@@ -1,5 +1,3 @@
-// var btn = document.getElementById("btn");
-// btn.addEventListener("click", calc);
 function calc() {
   var T1 = parseFloat(document.getElementById("T1").value) + 273;
   var T2 = parseFloat(document.getElementById("T2").value) + 273;
@@ -18,14 +16,13 @@ function calc() {
   var Tc4 = Tc * Tc * Tc * Tc;
   var Ep = (Tb4 - Tc4) / (Tp4 - Tc4);
 
-  
   const output = document.getElementById("output");
   if (Tp4==Tc4 || !Tb || !Tp || !Tc ) {
     output.textContent = "Invalid Data"
   } else {
     output.textContent = "Emissivity Test Surface: " + Ep.toFixed(3);
   }
-  
+
   parent.location='#results';
   document.getElementById("output").style.display = "none";
   document.getElementById("results").style.display = "block";
@@ -37,6 +34,4 @@ function calc() {
   setTimeout(function () {
     document.getElementById("output").style.display = "block";
   }, 1000);
-
-  // alert("Emissivity Test Surface: " + Ep.toFixed(3));
 }

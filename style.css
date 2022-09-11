@@ -3,86 +3,83 @@
   position: relative;
   padding: 5px;
   border-width: 5px;
-  border-style:double;
+  border-style: double;
   text-align: center;
 }
 
-body{
+body {
   background-color: #003865;
   margin: 5% 7%;
   border-width: 10;
   border-color: aliceblue;
   /* padding: 20px; */
 }
-center
-{
+center {
   font-style: italic;
   color: yellow;
   font-size: 50px;
 }
-a
-{
+a {
   font-size: 30px;
   text-decoration: underline;
 }
-form,label{
+form,
+label {
   color: yellow;
 }
 
-label{
+label {
   padding: 8px 0;
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
-.form-control{
+.form-control {
   font-size: 0.85rem;
 }
-hr{
+#output {
+  white-space: pre;
+  font-size: 0.9rem;
+}
+hr {
   color: #fff;
 }
-list
-{
+list {
   color: yellow;
 }
-thead{
+thead {
   color: yellow;
 }
-td,th
-{
-  color:white;
+td,
+th {
+  color: white;
 }
-#head
-{
-color: yellow;
+#head {
+  color: yellow;
 }
-h5
-{
+h5 {
   color: green;
 }
 
-ol{
+ol {
   color: white;
   opacity: 0.6;
 }
-h2
-{
-  color:red;
+h2 {
+  color: red;
   font-style: oblique;
   font-stretch: normal;
 }
-.h5
-{
+.h5 {
   color: white;
-  opacity:0.7;
+  opacity: 0.7;
   font-size: 1rem;
 }
-li{
+li {
   font-size: 0.9rem;
 }
-img{
+img {
   width: 100px;
   height: 100px;
 }
-#anchor
-{
+#anchor {
   font-size: 20px;
 }

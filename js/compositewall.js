@@ -22,6 +22,7 @@ function calc() {
   var q = Q / A;
   var R_Total = (Ta - Td) / q;
   var K_composite = b / R_Total;
+  var newline = "\r\n";
 
   const output = document.getElementById("output");
   if (Ta - Td == 0 || !T1 || !T2 || !T7 || !T8 || !Q) {
@@ -29,12 +30,7 @@ function calc() {
   } else {
     output.textContent =
       "Total Thermal Resistance of Composite Slab:  " +
-      R_Total.toFixed(3) +
-      " Kg/s";
-
-    output.textContent += "\r\n";
-
-    output.textContent +=
+      R_Total.toFixed(3) + " Kg/s" + newline+
       "Total Thermal Conductivity of Composite slab:  " +
       K_composite.toFixed(3) + " m3/s";
   }
