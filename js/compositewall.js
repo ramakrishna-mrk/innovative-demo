@@ -7,7 +7,7 @@ function calc() {
   var T6 = parseFloat(document.getElementById("T6").value);
   var T7 = parseFloat(document.getElementById("T7").value);
   var T8 = parseFloat(document.getElementById("T8").value);
-  var Q = parseFloat(document.getElementById("hs").value);
+  var Q  = parseFloat(document.getElementById("hs").value);
 
   var Ta = (T1 + T2) / 2;
   var Tb = (T3 + T4) / 2;
@@ -22,7 +22,6 @@ function calc() {
   var q = Q / A;
   var R_Total = (Ta - Td) / q;
   var K_composite = b / R_Total;
-  var newline = "\r\n";
 
   const output = document.getElementById("output");
   if (Ta - Td == 0 || !T1 || !T2 || !T7 || !T8 || !Q) {
@@ -30,9 +29,9 @@ function calc() {
   } else {
     output.innerHTML =
       "Total Thermal Resistance of Composite Slab:  " +
-      R_Total.toFixed(3) + " Kg/s <br>" + 
+      R_Total.toFixed(6) + " <sup>o</sup>C/W <br>" + 
       "Total Thermal Conductivity of Composite slab:  " +
-      K_composite.toFixed(3) + " m3/s";
+      K_composite.toFixed(6) + " W/m<sup>o</sup>C";
   }
 
   parent.location = "#results";

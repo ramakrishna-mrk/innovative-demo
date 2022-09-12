@@ -53,8 +53,9 @@ th {
 #head {
   color: yellow;
 }
-h5 {
-  color: green;
+h3 {
+  color: rgb(220, 255, 220);
+  text-align: center;
 }
 
 ol {
