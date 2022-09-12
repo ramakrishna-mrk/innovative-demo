@@ -15,7 +15,6 @@
         <h2>Sampling</h2>
     </div>
 
-
     <hr>
     <h3>Riffle Sampling Method</h3>
     <form>
@@ -53,7 +52,7 @@
             </div>
 
             <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1"> Pan </span>
+                <span class="input-group-text" id="basic-addon1">---- Pan ---- </span>
                 <input type="number" class="form-control" id="M5" placeholder="Enter Mass Retained in grams"
                     aria-label="Username" aria-describedby="basic-addon1">
             </div>
@@ -66,25 +65,36 @@
 
     <br>
     <div id="results" style="display: none">
-        <label style="text-align:left;" for="HS">Observation table for Riffle Sampling - Differential Analysis</label>
+        <label style="text-align:left;" for="HS">Observation table - Differential Analysis</label>
         <div class="table-responsive">
             <table id="dtable" class="table table-bordered"></table>
         </div>
+
         <br>
-        <label style="text-align:left;" for="HS">Results</label>
+
+        <label style="text-align:left;" for="HS"></label>
         <div class="d-flex justify-content-center">
             <div id="hspinner" class="spinner-border text-light" role="status">
                 <span class="visually-hidden">Loading...</span>
             </div>
         </div>
+
         <div id="output" class="alert alert-primary" role="alert">
             Total Thermal Resistance of Composite Slab:
             Total Thermal Conductivity of Composite slab:
         </div>
-    </div>
-    <script src="js/sampling.js">
 
-    </script>
+        <label style="text-align:left;" for="HS">Observation table - Cumulative Analysis</label>
+        <div class="table-responsive">
+            <table id="ctable" class="table table-bordered"></table>
+        </div>
+
+        <br><br>
+        <div id="first" style="height: 303px; width: 103%;"></div>
+    </div>
+
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script src="js/rifflesampling.js"></script>
 </body>
 
 </html>

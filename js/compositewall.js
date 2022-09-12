@@ -22,16 +22,16 @@ function calc() {
   var q = Q / A;
   var R_Total = (Ta - Td) / q;
   var K_composite = b / R_Total;
-
+  
   const output = document.getElementById("output");
   if (Ta - Td == 0 || !T1 || !T2 || !T7 || !T8 || !Q) {
     output.innerHTML = "Invalid Data";
   } else {
     output.innerHTML =
       "Total Thermal Resistance of Composite Slab:  " +
-      R_Total.toFixed(6) + " <sup>o</sup>C/W <br>" + 
+      Math.abs(R_Total).toFixed(6) + " <sup>o</sup>C/W <br>" + 
       "Total Thermal Conductivity of Composite slab:  " +
-      K_composite.toFixed(6) + " W/m<sup>o</sup>C";
+      Math.abs(K_composite).toFixed(6) + " W/m<sup>o</sup>C";
   }
 
   parent.location = "#results";
