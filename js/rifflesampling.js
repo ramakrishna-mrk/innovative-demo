@@ -115,15 +115,6 @@ function calc() {
     data[i].CumMassFraction = parseFloat(data[i].CumMassFraction.toFixed(3));
   }
 
-  if (!M0 || !M1 || !M2 || !M3 || !M4 || !M5) {
-    htmlres += "Invalid Data";
-  } else {
-    htmlres +=
-      "The average size (volume surface mean diameter) of the sample is: " +
-      (1 / Total_XibyDpi).toFixed(3) +
-      " units";
-  }
-
   htmldt += "<tr>";
   htmldt += "<th>MeshNo</th>";
   htmldt += "<th>MeshSize</th>";
@@ -161,9 +152,24 @@ function calc() {
     htmlct += "<td>" + data[i].CumMassFraction + "</td>";
     htmlct += "</tr>";
   }
+
+  if (!M0 || !M1 || !M2 || !M3 || !M4 || !M5) {
+    htmlres += "Invalid Data";
+  } else {
+    htmlres +=
+      "The average size (volume surface mean diameter) of the sample is: " +
+      (1 / Total_XibyDpi).toFixed(3) +
+      " units";
+
+      var dtlabel = document.getElementById("dtlabel");
+      dtlabel.innerText = "Observation table - Differential Analysis";
+      var ctlabel = document.getElementById("ctlabel");
+      ctlabel.innerText = "Observation table - Cumulative Analysis";
+      dtable.innerHTML = htmldt;
+      ctable.innerHTML = htmlct;
+  }
   output.innerHTML = htmlres;
-  dtable.innerHTML = htmldt;
-  ctable.innerHTML = htmlct;
+  
   parent.location = "#results";
   document.getElementById("output").style.display = "none";
   document.getElementById("results").style.display = "block";
@@ -177,33 +183,37 @@ function calc() {
   }, 500);
 
   //Graph
-  var c = new CanvasJS.Chart("first", {
-    zoomEnabled: true,
-    title: {
-      text: "Graph",
-    },
-    axisX: {
-      title: "Cumulative Mass Fraction",
-    },
-    axisY: {
-      title: "1/Dpi",
-    },
-    data: [
-      {
-        type: "area",
-        xValueType: "number",
-        dataPoints: [
-          { x: 0, y: 0 },
-          { x: data[0].CumMassFraction, y: data[0].OneByDp },
-          { x: data[1].CumMassFraction, y: data[1].OneByDp },
-          { x: data[2].CumMassFraction, y: data[2].OneByDp },
-          { x: data[3].CumMassFraction, y: data[3].OneByDp },
-          { x: data[4].CumMassFraction, y: data[4].OneByDp },
-          { x: data[5].CumMassFraction, y: 2*data[4].OneByDp -data[3].OneByDp},
-        ],
+  if ((!M0 || !M1 || !M2 || !M3 || !M4 || !M5) == false) {
+    var c = new CanvasJS.Chart("first", {
+      zoomEnabled: true,
+      title: {
+        text: "Graph",
       },
-    ],
-  });
-  c.render();
-
+      axisX: {
+        title: "Cumulative Mass Fraction",
+      },
+      axisY: {
+        title: "1/Dpi",
+      },
+      data: [
+        {
+          type: "area",
+          xValueType: "number",
+          dataPoints: [
+            { x: 0, y: 0 },
+            { x: data[0].CumMassFraction, y: data[0].OneByDp },
+            { x: data[1].CumMassFraction, y: data[1].OneByDp },
+            { x: data[2].CumMassFraction, y: data[2].OneByDp },
+            { x: data[3].CumMassFraction, y: data[3].OneByDp },
+            { x: data[4].CumMassFraction, y: data[4].OneByDp },
+            {
+              x: data[5].CumMassFraction,
+              y: 2 * data[4].OneByDp - data[3].OneByDp,
+            },
+          ],
+        },
+      ],
+    });
+    c.render();
+  }
 }
