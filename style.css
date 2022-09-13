@@ -33,7 +33,7 @@ label {
 .form-control {
   font-size: 0.85rem;
 }
-#output {
+#output, #output1, #output2 {
   /* white-space: pre; */
   font-size: 0.85rem;
 }
@@ -56,6 +56,8 @@ th {
 h3 {
   color: rgb(220, 255, 220);
   text-align: center;
+  font-size: 1rem;
+  margin-top: -5px;
 }
 
 ol {

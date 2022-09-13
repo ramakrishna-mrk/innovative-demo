@@ -1,5 +1,6 @@
 function calc() {
   var M0 = parseFloat(document.getElementById("M0").value);
+  var M6 = parseFloat(document.getElementById("M6").value);
   var M1 = parseFloat(document.getElementById("M1").value);
   var M2 = parseFloat(document.getElementById("M2").value);
   var M3 = parseFloat(document.getElementById("M3").value);
@@ -20,7 +21,7 @@ function calc() {
   var data = [];
 
   data.push({
-    MeshNo: 12,
+    MeshNo: 14,
     MeshSize: 1.18,
     AvgSize: 1.18,
     MassRetained: M0,
@@ -32,9 +33,21 @@ function calc() {
   });
 
   data.push({
+    MeshNo: 18,
+    MeshSize: 1.02,
+    AvgSize: 1.10,
+    MassRetained: M6,
+    MassFraction: 0,
+    XibyDpi: 0,
+
+    OneByDp: 0.98,
+    CumMassFraction: 0,
+  });
+
+  data.push({
     MeshNo: 22,
     MeshSize: 0.71,
-    AvgSize: 0.945,
+    AvgSize: 0.865,
     MassRetained: M1,
     MassFraction: 0,
     XibyDpi: 0,
@@ -98,12 +111,12 @@ function calc() {
 
   for (i = 0; i <= data.length - 1; i++) {
     data[i].MassFraction = data[i].MassRetained / Total_Material;
-    data[i].MassFraction = parseFloat(data[i].MassFraction.toFixed(3));
+    // data[i].MassFraction = parseFloat(data[i].MassFraction.toFixed(3));
   }
 
   for (i = 0; i <= data.length - 1; i++) {
     data[i].XibyDpi = data[i].MassFraction / data[i].AvgSize;
-    data[i].XibyDpi = parseFloat(data[i].XibyDpi.toFixed(3));
+    // data[i].XibyDpi = parseFloat(data[i].XibyDpi.toFixed(3));
   }
 
   var Total_XibyDpi = 0;
@@ -115,11 +128,11 @@ function calc() {
   for (i = 0; i <= data.length - 1; i++) {
     TotalMassFraction += data[i].MassFraction;
     data[i].CumMassFraction = TotalMassFraction;
-    data[i].CumMassFraction = parseFloat(data[i].CumMassFraction.toFixed(3));
+    // data[i].CumMassFraction = parseFloat(data[i].CumMassFraction.toFixed(3));
   }
 
-//   data[5].OneByDp = 2 * data[4].OneByDp - data[3].OneByDp;
-//   var Area = 0.5 * data[0].CumMassFraction * data[0].OneByDp;
+  //   data[5].OneByDp = 2 * data[4].OneByDp - data[3].OneByDp;
+  //   var Area = 0.5 * data[0].CumMassFraction * data[0].OneByDp;
   var Area = 0;
   for (i = 1; i <= data.length - 2; i++) {
     Area +=
@@ -130,7 +143,7 @@ function calc() {
       (data[i].CumMassFraction - data[i - 1].CumMassFraction) *
       (data[i].OneByDp - data[i - 1].OneByDp);
   }
-//   data[5].OneByDp = Infinity;
+  //   data[5].OneByDp = Infinity;
 
   htmldt += "<tr>";
   htmldt += "<th>MeshNo</th>";
@@ -146,27 +159,27 @@ function calc() {
     htmldt += "<td>" + data[i].MeshSize + "</td>";
     htmldt += "<td>" + data[i].AvgSize + "</td>";
     htmldt += "<td>" + data[i].MassRetained + "</td>";
-    htmldt += "<td>" + data[i].MassFraction + "</td>";
-    htmldt += "<td>" + data[i].XibyDpi + "</td>";
+    htmldt += "<td>" + data[i].MassFraction.toFixed(3) + "</td>";
+    htmldt += "<td>" + data[i].XibyDpi.toFixed(3) + "</td>";
     htmldt += "</tr>";
   }
 
   htmlct += "<tr>";
   htmlct += "<th>MeshNo</th>";
   htmlct += "<th>MeshSize</th>";
-  htmlct += "<th>1/D<sub>p</sub></th>";
+  htmlct += "<th>1/D<sub>pi</sub></th>";
   htmlct += "<th>MassRetained</th>";
   htmlct += "<th>MassFraction</th>";
   htmlct += "<th>CumMassFraction</th>";
   htmlct += "</tr>";
-  for (i = 0; i <= data.length-2; i++) {
+  for (i = 0; i <= data.length - 1; i++) {
     htmlct += "<tr>";
     htmlct += "<td>" + data[i].MeshNo + "</td>";
     htmlct += "<td>" + data[i].MeshSize + "</td>";
     htmlct += "<td>" + data[i].OneByDp + "</td>";
     htmlct += "<td>" + data[i].MassRetained + "</td>";
-    htmlct += "<td>" + data[i].MassFraction + "</td>";
-    htmlct += "<td>" + data[i].CumMassFraction + "</td>";
+    htmlct += "<td>" + data[i].MassFraction.toFixed(3) + "</td>";
+    htmlct += "<td>" + data[i].CumMassFraction.toFixed(3) + "</td>";
     htmlct += "</tr>";
   }
 
@@ -175,14 +188,14 @@ function calc() {
     htmlres2 += "Invalid Data";
   } else {
     htmlres1 +=
-      "The average size (volume surface mean diameter) of the sample is: " +
+      "<b>Result: Differential Analysis</b><br>The average size (volume surface mean diameter) of the sample is: " +
       (1 / Total_XibyDpi).toFixed(3) +
-      " units";
+      " mm";
 
     htmlres2 +=
-      "The average size (volume surface mean diameter) of the sample is: " +
-      Area.toFixed(3) +
-      " units";
+      "<b>Result: Cumulative Analysis</b><br>The average size (volume surface mean diameter) of the sample is: " +
+      (0.25*Area).toFixed(3) +
+      " mm";
 
     var dtlabel = document.getElementById("dtlabel");
     dtlabel.innerText = "Differential Analysis";
@@ -196,19 +209,26 @@ function calc() {
 
   parent.location = "#results";
   document.getElementById("output1").style.display = "none";
+  document.getElementById("output2").style.display = "none";
+  document.getElementById("dtable").style.display = "none";
+  document.getElementById("ctable").style.display = "none";
   document.getElementById("results").style.display = "block";
-  document.getElementById("hspinner").style.display = "block";
+  document.getElementById("hspinner1").style.display = "block";
+  document.getElementById("hspinner2").style.display = "block";
+  // document.getElementById("graph").style.display = "none";
   setTimeout(function () {
-    document.getElementById("hspinner").style.display = "none";
-  }, 500);
-
-  setTimeout(function () {
+    document.getElementById("hspinner1").style.display = "none";
+    document.getElementById("hspinner2").style.display = "none";
+    document.getElementById("dtable").style.display = "block";
+    document.getElementById("ctable").style.display = "block";
     document.getElementById("output1").style.display = "block";
+    document.getElementById("output2").style.display = "block";
   }, 500);
+  
 
   //Graph
   if ((!M0 || !M1 || !M2 || !M3 || !M4 || !M5) == false) {
-    var c = new CanvasJS.Chart("first", {
+    var c = new CanvasJS.Chart("graph", {
       zoomEnabled: true,
       title: {
         text: "Graph",
@@ -224,7 +244,7 @@ function calc() {
           type: "area",
           xValueType: "number",
           dataPoints: [
-            { x: 0, y: 0 },
+            // { x: 0, y: 0 },
             { x: data[0].CumMassFraction, y: data[0].OneByDp },
             { x: data[1].CumMassFraction, y: data[1].OneByDp },
             { x: data[2].CumMassFraction, y: data[2].OneByDp },
