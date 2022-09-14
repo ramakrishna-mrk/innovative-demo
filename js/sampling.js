@@ -35,7 +35,7 @@ function calc() {
   data.push({
     MeshNo: 18,
     MeshSize: 1.02,
-    AvgSize: 1.10,
+    AvgSize: 1.1,
     MassRetained: M6,
     MassFraction: 0,
     XibyDpi: 0,
@@ -131,10 +131,10 @@ function calc() {
     // data[i].CumMassFraction = parseFloat(data[i].CumMassFraction.toFixed(3));
   }
 
-  //   data[5].OneByDp = 2 * data[4].OneByDp - data[3].OneByDp;
-  //   var Area = 0.5 * data[0].CumMassFraction * data[0].OneByDp;
-  var Area = 0;
-  for (i = 1; i <= data.length - 2; i++) {
+    data[6].OneByDp = 2 * data[5].OneByDp - data[4].OneByDp;
+  var Area = 0.5 * data[0].CumMassFraction * data[0].OneByDp;
+  // var Area = 0;
+  for (i = 1; i <= data.length - 1; i++) {
     Area +=
       (data[i].CumMassFraction - data[i - 1].CumMassFraction) *
       data[i - 1].OneByDp;
@@ -143,7 +143,7 @@ function calc() {
       (data[i].CumMassFraction - data[i - 1].CumMassFraction) *
       (data[i].OneByDp - data[i - 1].OneByDp);
   }
-  //   data[5].OneByDp = Infinity;
+    data[6].OneByDp = Infinity;
 
   htmldt += "<tr>";
   htmldt += "<th>MeshNo</th>";
@@ -186,7 +186,9 @@ function calc() {
   if (!M0 || !M1 || !M2 || !M3 || !M4 || !M5) {
     htmlres1 += "Invalid Data";
     htmlres2 += "Invalid Data";
+    document.getElementById("graph").style.display = "none";
   } else {
+    document.getElementById("graph").style.display = "block";
     htmlres1 +=
       "<b>Result: Differential Analysis</b><br>The average size (volume surface mean diameter) of the sample is: " +
       (1 / Total_XibyDpi).toFixed(3) +
@@ -194,16 +196,17 @@ function calc() {
 
     htmlres2 +=
       "<b>Result: Cumulative Analysis</b><br>The average size (volume surface mean diameter) of the sample is: " +
-      (0.25*Area).toFixed(3) +
+      (1 / Area).toFixed(3) +
       " mm";
-
-    var dtlabel = document.getElementById("dtlabel");
-    dtlabel.innerText = "Differential Analysis";
-    var ctlabel = document.getElementById("ctlabel");
-    ctlabel.innerText = "Cumulative Analysis";
-    dtable.innerHTML = htmldt;
-    ctable.innerHTML = htmlct;
   }
+  var dtlabel = document.getElementById("dtlabel");
+  dtlabel.innerText = "Differential Analysis";
+  var ctlabel = document.getElementById("ctlabel");
+  ctlabel.innerText = "Cumulative Analysis";
+
+  dtable.innerHTML = htmldt;
+  ctable.innerHTML = htmlct;
+
   output1.innerHTML = htmlres1;
   output2.innerHTML = htmlres2;
 
@@ -216,15 +219,25 @@ function calc() {
   document.getElementById("hspinner1").style.display = "block";
   document.getElementById("hspinner2").style.display = "block";
   // document.getElementById("graph").style.display = "none";
-  setTimeout(function () {
-    document.getElementById("hspinner1").style.display = "none";
-    document.getElementById("hspinner2").style.display = "none";
-    document.getElementById("dtable").style.display = "block";
-    document.getElementById("ctable").style.display = "block";
-    document.getElementById("output1").style.display = "block";
-    document.getElementById("output2").style.display = "block";
-  }, 500);
-  
+  if (!M0 || !M1 || !M2 || !M3 || !M4 || !M5) {
+    setTimeout(function () {
+      document.getElementById("hspinner1").style.display = "none";
+      document.getElementById("hspinner2").style.display = "none";
+      document.getElementById("output1").style.display = "block";
+      document.getElementById("output2").style.display = "block";
+      document.getElementById("graph").style.display = "none";
+    }, 500);
+  } else {
+    setTimeout(function () {
+      document.getElementById("hspinner1").style.display = "none";
+      document.getElementById("hspinner2").style.display = "none";
+      document.getElementById("dtable").style.display = "block";
+      document.getElementById("ctable").style.display = "block";
+      document.getElementById("output1").style.display = "block";
+      document.getElementById("output2").style.display = "block";
+      // document.getElementById("graph").style.display = "block";
+    }, 500);
+  }
 
   //Graph
   if ((!M0 || !M1 || !M2 || !M3 || !M4 || !M5) == false) {
@@ -250,9 +263,10 @@ function calc() {
             { x: data[2].CumMassFraction, y: data[2].OneByDp },
             { x: data[3].CumMassFraction, y: data[3].OneByDp },
             { x: data[4].CumMassFraction, y: data[4].OneByDp },
+            { x: data[5].CumMassFraction, y: data[5].OneByDp },
             {
-              x: data[5].CumMassFraction,
-              y: 2 * data[4].OneByDp - data[3].OneByDp,
+              x: data[6].CumMassFraction,
+              y: 2 * data[5].OneByDp - data[4].OneByDp,
             },
           ],
         },
