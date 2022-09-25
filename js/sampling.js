@@ -1,11 +1,11 @@
 function calc() {
   var M0 = parseFloat(document.getElementById("M0").value);
-  var M6 = parseFloat(document.getElementById("M6").value);
   var M1 = parseFloat(document.getElementById("M1").value);
   var M2 = parseFloat(document.getElementById("M2").value);
   var M3 = parseFloat(document.getElementById("M3").value);
   var M4 = parseFloat(document.getElementById("M4").value);
   var M5 = parseFloat(document.getElementById("M5").value);
+  var M6 = parseFloat(document.getElementById("M6").value);
 
   var output1 = document.getElementById("output1");
   var output2 = document.getElementById("output2");
@@ -36,7 +36,7 @@ function calc() {
     MeshNo: 18,
     MeshSize: 1.02,
     AvgSize: 1.1,
-    MassRetained: M6,
+    MassRetained: M1,
     MassFraction: 0,
     XibyDpi: 0,
 
@@ -48,7 +48,7 @@ function calc() {
     MeshNo: 22,
     MeshSize: 0.71,
     AvgSize: 0.865,
-    MassRetained: M1,
+    MassRetained: M2,
     MassFraction: 0,
     XibyDpi: 0,
 
@@ -60,7 +60,7 @@ function calc() {
     MeshNo: 36,
     MeshSize: 0.425,
     AvgSize: 0.567,
-    MassRetained: M2,
+    MassRetained: M3,
     MassFraction: 0,
     XibyDpi: 0,
 
@@ -72,7 +72,7 @@ function calc() {
     MeshNo: 44,
     MeshSize: 0.355,
     AvgSize: 0.39,
-    MassRetained: M3,
+    MassRetained: M4,
     MassFraction: 0,
     XibyDpi: 0,
 
@@ -84,7 +84,7 @@ function calc() {
     MeshNo: 60,
     MeshSize: 0.25,
     AvgSize: 0.302,
-    MassRetained: M4,
+    MassRetained: M5,
     MassFraction: 0,
     XibyDpi: 0,
 
@@ -96,7 +96,7 @@ function calc() {
     MeshNo: "pan",
     MeshSize: "-",
     AvgSize: 0.125,
-    MassRetained: M5,
+    MassRetained: M6,
     MassFraction: 0,
     XibyDpi: 0,
 
@@ -131,9 +131,9 @@ function calc() {
     // data[i].CumMassFraction = parseFloat(data[i].CumMassFraction.toFixed(3));
   }
 
-    data[6].OneByDp = 2 * data[5].OneByDp - data[4].OneByDp;
-  var Area = 0.5 * data[0].CumMassFraction * data[0].OneByDp;
-  // var Area = 0;
+  data[6].OneByDp = 2 * data[5].OneByDp - data[4].OneByDp;
+  // var Area = 0.5 * data[0].CumMassFraction * data[0].OneByDp;
+  var Area = 0;
   for (i = 1; i <= data.length - 1; i++) {
     Area +=
       (data[i].CumMassFraction - data[i - 1].CumMassFraction) *
@@ -143,14 +143,14 @@ function calc() {
       (data[i].CumMassFraction - data[i - 1].CumMassFraction) *
       (data[i].OneByDp - data[i - 1].OneByDp);
   }
-    data[6].OneByDp = Infinity;
+  data[6].OneByDp = Infinity;
 
   htmldt += "<tr>";
-  htmldt += "<th>MeshNo</th>";
-  htmldt += "<th>MeshSize</th>";
-  htmldt += "<th>AvgSize</th>";
-  htmldt += "<th>MassRetained</th>";
-  htmldt += "<th>MassFraction</th>";
+  htmldt += "<th>Mesh No</th>";
+  htmldt += "<th>Mesh Size, D<sub>p</sub> (mm)</th>";
+  htmldt += "<th>Avg Size (mm)</th>";
+  htmldt += "<th>Mass of Material Retained (g)</th>";
+  htmldt += "<th>Mass Fraction (x<sub>i</sub>)</th>";
   htmldt += "<th>x<sub>i</sub>/D<sub>pi</sub></th>";
   htmldt += "</tr>";
   for (i = 0; i <= data.length - 1; i++) {
@@ -165,12 +165,12 @@ function calc() {
   }
 
   htmlct += "<tr>";
-  htmlct += "<th>MeshNo</th>";
-  htmlct += "<th>MeshSize</th>";
-  htmlct += "<th>1/D<sub>pi</sub></th>";
-  htmlct += "<th>MassRetained</th>";
-  htmlct += "<th>MassFraction</th>";
-  htmlct += "<th>CumMassFraction</th>";
+  htmlct += "<th>Mesh No</th>";
+  htmlct += "<th>Mesh Size, D<sub>p</sub> (mm)</th>";
+  htmlct += "<th>1/D<sub>pi</sub> (mm<sup>-1</sup>)</th>";
+  htmlct += "<th>Mass of Material Retained (g)</th>";
+  htmlct += "<th>Mass Fraction (x<sub>i</sub>)</th>";
+  htmlct += "<th>Cumulative Mass Fraction (φ)</th>";
   htmlct += "</tr>";
   for (i = 0; i <= data.length - 1; i++) {
     htmlct += "<tr>";
@@ -183,7 +183,7 @@ function calc() {
     htmlct += "</tr>";
   }
 
-  if (!M0 || !M1 || !M2 || !M3 || !M4 || !M5) {
+  if (!M0 || !M1 || !M2 || !M3 || !M4 || !M5 || !M6) {
     htmlres1 += "Invalid Data";
     htmlres2 += "Invalid Data";
     document.getElementById("graph").style.display = "none";
@@ -219,7 +219,7 @@ function calc() {
   document.getElementById("hspinner1").style.display = "block";
   document.getElementById("hspinner2").style.display = "block";
   // document.getElementById("graph").style.display = "none";
-  if (!M0 || !M1 || !M2 || !M3 || !M4 || !M5) {
+  if (!M0 || !M1 || !M2 || !M3 || !M4 || !M5 || !M6) {
     setTimeout(function () {
       document.getElementById("hspinner1").style.display = "none";
       document.getElementById("hspinner2").style.display = "none";
@@ -247,7 +247,7 @@ function calc() {
         text: "Graph",
       },
       axisX: {
-        title: "Cumulative Mass Fraction",
+        title: "Cumulative Mass Fraction (φ)",
       },
       axisY: {
         title: "1/Dpi",
