@@ -243,6 +243,7 @@ function calc() {
   if ((!M0 || !M1 || !M2 || !M3 || !M4 || !M5) == false) {
     var c = new CanvasJS.Chart("graph", {
       zoomEnabled: true,
+      animationEnabled: true,
       title: {
         text: "Graph",
       },
