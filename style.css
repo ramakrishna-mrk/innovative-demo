@@ -14,6 +14,7 @@ body {
   border-color: aliceblue;
   /* padding: 20px; */
 }
+
 center {
   font-style: italic;
   color: yellow;
@@ -84,3 +85,11 @@ img {
 #anchor {
   font-size: 20px;
 }
+
+/* Mobile */
+@media only screen and (max-width: 600px) {
+  body{
+    margin: 5% 3%;
+  }
+}
+
