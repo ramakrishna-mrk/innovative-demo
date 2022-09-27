@@ -85,6 +85,29 @@ img {
 #anchor {
   font-size: 20px;
 }
+th{
+  text-align: center;
+  vertical-align: middle;
+}
+table td {
+  position: relative;
+}
+
+table td input {
+  position: absolute;
+  display: block;
+  top:0;
+  left:0;
+  margin: 0;
+  height: 100% !important;
+  width: 100%;
+  /* border-radius: 0 !important; */
+  border-style:inherit;
+  /* border: none; */
+  padding: 10px;
+  box-sizing: border-box;
+}
+
 
 /* Mobile */
 @media only screen and (max-width: 600px) {
