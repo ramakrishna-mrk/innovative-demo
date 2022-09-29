@@ -122,14 +122,12 @@ function calc() {
         title: "Cumulative Time",
         stripLines: [{
           value: x80,
-          // label: "time of griding"
         }]
       },
       axisY: {
         title: "Cumulative Mass Percent",
         stripLines: [{
           value: y80,
-          // label: "time of griding"
         }]
       },
       data: [
