@@ -54,6 +54,10 @@ function calc() {
     var mf = parseFloat(document.getElementById("f" + i).value);
     var mo = parseFloat(document.getElementById("o" + i).value);
     var mu = parseFloat(document.getElementById("u" + i).value);
+    if (mf!==mf || mo!==mo || mu !==mu){
+      window.alert("Please Fill All Required Fields");
+      return;
+    }
     mdata.push({
       M_f: mf,
       M_o: mo,

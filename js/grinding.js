@@ -4,8 +4,16 @@ function calc() {
   var M6 = parseFloat(document.getElementById("M6").value);
   var M8 = parseFloat(document.getElementById("M8").value);
 
-  var output = document.getElementById("output");
+  var result = document.getElementById("result");
   var gtable = document.getElementById("gtable");
+
+  if (M2 !== M2 || M4 !== M4 || M6 !== M6 || M8 !== M8) {
+    document.getElementById("glabel").style.display = "none";
+    document.getElementById("gtable").style.display = "none";
+    document.getElementById("graph").style.display = "none";
+    document.getElementById("result").style.display = "none";
+    return;
+  }
 
   var htmlres = "";
   var htmlgt = "";
@@ -51,12 +59,21 @@ function calc() {
     data[i].Cum_Mass_Percent = (data[i].Cum_Mass / 500) * 100;
   }
 
-  var m =
-    (data[3].Cum_Mass_Percent - data[2].Cum_Mass_Percent) /
-    (data[3].Cum_Time - data[2].Cum_Time);
-  var c = data[3].Cum_Mass_Percent - m * data[3].Cum_Time;
-  var y80 = 80;
-  var x80 = (y80 - c) / m;
+  //Finding out cum time for 80% cum mass percent:
+  var m = -1;
+  var xi = 0;
+  for (; xi < data.length; xi++) {
+    if (data[xi].Cum_Mass_Percent >= 80) {
+      m =
+        (data[xi].Cum_Mass_Percent - data[xi - 1].Cum_Mass_Percent) /
+        (data[xi].Cum_Time - data[xi - 1].Cum_Time);
+
+      var c = data[xi].Cum_Mass_Percent - m * data[xi].Cum_Time;
+      var y_80 = 80;
+      var x_time = (y_80 - c) / m;
+      break;
+    }
+  }
 
   htmlgt += "<tr>";
   htmlgt += "<th>Time (min)</th>";
@@ -75,43 +92,25 @@ function calc() {
     htmlgt += "</tr>";
   }
 
-  if (!M2 || !M4 || !M6 || !M8) {
-    htmlres += "Invalid Data";
-    document.getElementById("graph").style.display = "none";
+  if (m == -1) {
+    htmlres += "<b>Error: </b>Cumulative percent did not reached 80%.";
   } else {
-    document.getElementById("graph").style.display = "block";
     htmlres +=
       "<b>Result: </b><br>From the graph, the time corresponding to 80 percent is the time of grinding which is " +
-      x80.toFixed(3) +
+      x_time.toFixed(3) +
       " min";
   }
-  var glabel = document.getElementById("glabel");
-  glabel.innerText = "Observation Table";
 
+  // label, table, result, graph Setting
   gtable.innerHTML = htmlgt;
-  output.innerHTML = htmlres;
-
-  parent.location = "#results";
-  document.getElementById("output").style.display = "none";
-  document.getElementById("gtable").style.display = "none";
-  document.getElementById("results").style.display = "block";
-  document.getElementById("hspinner").style.display = "block";
-  if (!M2 || !M4 || !M6 || !M8) {
-    setTimeout(function () {
-      document.getElementById("hspinner").style.display = "none";
-      document.getElementById("output").style.display = "block";
-      document.getElementById("graph").style.display = "none";
-    }, 500);
-  } else {
-    setTimeout(function () {
-      document.getElementById("hspinner").style.display = "none";
-      document.getElementById("gtable").style.display = "block";
-      document.getElementById("output").style.display = "block";
-    }, 500);
-  }
+  result.innerHTML = htmlres;
 
   //Graph
-  if ((!M2 || !M4 || !M6 || !M8) == false) {
+  function compareDataPointYAscend(dataPoint1, dataPoint2) {
+    return dataPoint1.y - dataPoint2.y;
+  }
+  if (m !== -1) {
+    document.getElementById("graph").style.display = "block";
     var c = new CanvasJS.Chart("graph", {
       zoomEnabled: true,
       animationEnabled: true,
@@ -120,15 +119,19 @@ function calc() {
       },
       axisX: {
         title: "Cumulative Time",
-        stripLines: [{
-          value: x80,
-        }]
+        stripLines: [
+          {
+            value: x_time,
+          },
+        ],
       },
       axisY: {
         title: "Cumulative Mass Percent",
-        stripLines: [{
-          value: y80,
-        }]
+        stripLines: [
+          {
+            value: y_80,
+          },
+        ],
       },
       data: [
         {
@@ -139,9 +142,9 @@ function calc() {
             { x: data[1].Cum_Time, y: data[1].Cum_Mass_Percent },
             { x: data[2].Cum_Time, y: data[2].Cum_Mass_Percent },
             {
-              x: x80,
-              y: y80,
-              indexLabel: "" + x80.toFixed(3),
+              x: x_time,
+              y: y_80,
+              indexLabel: "" + x_time.toFixed(3),
               markerType: "circle",
               markerColor: "#F08080",
             },
@@ -150,6 +153,22 @@ function calc() {
         },
       ],
     });
+    c.options.data[0].dataPoints.sort(compareDataPointYAscend);
     c.render();
+  } else {
+    document.getElementById("graph").style.display = "none";
   }
+
+  // Display Setting
+  parent.location = "#output";
+  document.getElementById("glabel").style.display = "block";
+  document.getElementById("gtable").style.display = "none";
+  document.getElementById("result").style.display = "none";
+  document.getElementById("hspinner").style.display = "block";
+
+  setTimeout(function () {
+    document.getElementById("hspinner").style.display = "none";
+    document.getElementById("gtable").style.display = "block";
+    document.getElementById("result").style.display = "block";
+  }, 500);
 }

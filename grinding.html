@@ -25,48 +25,48 @@
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">T2</span>
                 <input type="number" class="form-control" id="M2" placeholder="Enter Mass Retained in grams"
-                    aria-label="Username" aria-describedby="basic-addon1">
+                    aria-label="Username" aria-describedby="basic-addon1" required>
             </div>
 
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">T4</span>
                 <input type="number" class="form-control" id="M4" placeholder="Enter Mass Retained in grams"
-                    aria-label="Username" aria-describedby="basic-addon1">
+                    aria-label="Username" aria-describedby="basic-addon1" required>
             </div>
 
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">T6</span>
                 <input type="number" class="form-control" id="M6" placeholder="Enter Mass Retained in grams"
-                    aria-label="Username" aria-describedby="basic-addon1">
+                    aria-label="Username" aria-describedby="basic-addon1" required>
             </div>
 
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">T8</span>
                 <input type="number" class="form-control" id="M8" placeholder="Enter Mass Retained in grams"
-                    aria-label="Username" aria-describedby="basic-addon1">
+                    aria-label="Username" aria-describedby="basic-addon1" required>
             </div>
 
             <br>
-            <button href="#results" type="button" class="btn btn-primary" id="btn" onclick="calc()">Calculate</button>
+            <button href="#results" type="submit" class="btn btn-primary" id="btn" onclick="calc()">Calculate</button>
             <br><br>
     </form>
 
     <br>
-    <div id="results" style="display: none">
-        <label id="glabel" style="text-align:left;"></label>
-        <div class="table-responsive">
-            <table id="gtable" class="table table-bordered"></table>
+    <div id="output">
+        <label id="glabel" style="text-align:left; display:none">Observation Table</label>
+        <div class="table-responsive" >
+            <table id="gtable" class="table table-bordered" style="display:none"></table>
         </div>
         <br>
         <div class="d-flex justify-content-center">
-            <div id="hspinner" style="display:none" class="spinner-border text-light" role="status">
+            <div id="hspinner"class="spinner-border text-light" role="status" style="display:none" >
                 <span class="visually-hidden">Loading...</span>
             </div>
         </div>
-        <div id="graph" style="height: 303px; width: 100%;"></div>
+        <div id="graph" style="height: 303px; width: 100%; display:none"></div>
         <br>
-        <div id="output" class="alert alert-primary" role="alert">
-            //Result Output
+        <div id="result" class="alert alert-primary" role="alert" style="display:none" >
+            //Result
         </div>
         <br>
     </div>
