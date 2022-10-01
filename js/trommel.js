@@ -1,5 +1,5 @@
 function calc() {
-  var output = document.getElementById("output");
+  var result = document.getElementById("result");
   var atable = document.getElementById("atable");
 
   var htmlres = "";
@@ -54,8 +54,12 @@ function calc() {
     var mf = parseFloat(document.getElementById("f" + i).value);
     var mo = parseFloat(document.getElementById("o" + i).value);
     var mu = parseFloat(document.getElementById("u" + i).value);
-    if (mf!==mf || mo!==mo || mu !==mu){
-      window.alert("Please Fill All Required Fields");
+    if (mf !== mf || mo !== mo || mu !== mu) {
+      document.getElementById("alabel").style.display = "none";
+      document.getElementById("atable").style.display = "none";
+      document.getElementById("graph").style.display = "none";
+      document.getElementById("result").style.display = "none";
+      // window.alert("Please Fill All Required Fields");
       return;
     }
     mdata.push({
@@ -108,6 +112,7 @@ function calc() {
   var Eff_u = BbyF * ((1 - yu) / (1 - yf));
   var Eff_t = Eff_o * Eff_u;
 
+  //Forming Table
   htmlat += "<tr>";
   htmlat += "<th rowspan=2>Mesh No</th>";
   htmlat += "<th rowspan=2>Mesh Size D<sub>pi</sub> (mm)</th>";
@@ -142,39 +147,13 @@ function calc() {
     htmlat += "</tr>";
   }
 
-  if (false) {
-    htmlres += "Invalid Data";
-    document.getElementById("graph").style.display = "none";
-  } else {
-    document.getElementById("graph").style.display = "block";
-    htmlres +=
-      "<b>Result: </b><br> Overall Effectiveness of Trommel (E) is " +
-      Eff_t.toFixed(4);
-  }
-  var alabel = document.getElementById("alabel");
-  alabel.innerHTML = "Observation Table";
+  // Forming Result
+  htmlres +=
+    "<b>Result: </b><br> Overall Effectiveness of Trommel (E) is " +
+    Eff_t.toFixed(4);
 
   atable.innerHTML = htmlat;
-  output.innerHTML = htmlres;
-
-  parent.location = "#results";
-  document.getElementById("output").style.display = "none";
-  document.getElementById("atable").style.display = "none";
-  document.getElementById("results").style.display = "block";
-  document.getElementById("hspinner").style.display = "block";
-  if (f1 < 0) {
-    setTimeout(function () {
-      document.getElementById("hspinner").style.display = "none";
-      document.getElementById("output").style.display = "block";
-      document.getElementById("graph").style.display = "none";
-    }, 500);
-  } else {
-    setTimeout(function () {
-      document.getElementById("hspinner").style.display = "none";
-      document.getElementById("atable").style.display = "block";
-      document.getElementById("output").style.display = "block";
-    }, 500);
-  }
+  result.innerHTML = htmlres;
 
   var dataPointsf = [];
   for (var i = 0; i <= 1; i++) {
@@ -239,6 +218,23 @@ function calc() {
     });
   }
 
+  
+
+  parent.location = "#output";
+  document.getElementById("alabel").style.display = "none";
+  document.getElementById("atable").style.display = "none";
+  document.getElementById("result").style.display = "none";
+  document.getElementById("graph").style.display = "none";
+
+  document.getElementById("hspinner").style.display = "block";
+  
+
+  setTimeout(function () {
+    document.getElementById("hspinner").style.display = "none";
+    document.getElementById("alabel").style.display = "block";
+    document.getElementById("atable").style.display = "block";
+    document.getElementById("result").style.display = "block";
+    document.getElementById("graph").style.display = "block";
   var chart = new CanvasJS.Chart("graph", {
     zoomEnabled: true,
     animationEnabled: true,
@@ -279,4 +275,6 @@ function calc() {
     ],
   });
   chart.render();
+  }, 500);
+  
 }

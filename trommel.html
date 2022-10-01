@@ -38,85 +38,108 @@
                         <tr>
                             <td>4</td>
                             <td>4.00</td>
-                            <td><input type="number" id="f1" placeholder=""></td>
-                            <td><input type="number" id="o1" placeholder=""></td>
-                            <td><input type="number" id="u1" placeholder=""></td>
+                            <td><input type="number" id="f1" placeholder="" required min="0"
+                                    oninput="validity.valid||(value='');"></td>
+                            <td><input type="number" id="o1" placeholder="" required min="0"
+                                    oninput="validity.valid||(value='');"></td>
+                            <td><input type="number" id="u1" placeholder="" required min="0"
+                                    oninput="validity.valid||(value='');"></td>
                         </tr>
                         <tr>
                             <td>5</td>
                             <td>3.35</td>
-                            <td><input type="number" id="f2" placeholder=""></td>
-                            <td><input type="number" id="o2" placeholder=""></td>
-                            <td><input type="number" id="u2" placeholder=""></td>
+                            <td><input type="number" id="f2" placeholder="" required min="0"
+                                    oninput="validity.valid||(value='');"></td>
+                            <td><input type="number" id="o2" placeholder="" required min="0"
+                                    oninput="validity.valid||(value='');"></td>
+                            <td><input type="number" id="u2" placeholder="" required min="0"
+                                    oninput="validity.valid||(value='');"></td>
                         </tr>
                         <tr>
                             <td>6</td>
                             <td>2.80</td>
-                            <td><input type="number" id="f3" placeholder=""></td>
-                            <td><input type="number" id="o3" placeholder=""></td>
-                            <td><input type="number" id="u3" placeholder=""></td>
+                            <td><input type="number" id="f3" placeholder="" required min="0"
+                                    oninput="validity.valid||(value='');"></td>
+                            <td><input type="number" id="o3" placeholder="" required min="0"
+                                    oninput="validity.valid||(value='');"></td>
+                            <td><input type="number" id="u3" placeholder="" required min="0"
+                                    oninput="validity.valid||(value='');"></td>
                         </tr>
                         <tr>
                             <td>7</td>
                             <td>2.36</td>
-                            <td><input type="number" id="f4" placeholder=""></td>
-                            <td><input type="number" id="o4" placeholder=""></td>
-                            <td><input type="number" id="u4" placeholder=""></td>
+                            <td><input type="number" id="f4" placeholder="" required min="0"
+                                    oninput="validity.valid||(value='');"></td>
+                            <td><input type="number" id="o4" placeholder="" required min="0"
+                                    oninput="validity.valid||(value='');"></td>
+                            <td><input type="number" id="u4" placeholder="" required min="0"
+                                    oninput="validity.valid||(value='');"></td>
                         </tr>
                         <tr>
                             <td>8</td>
                             <td>2.00</td>
-                            <td><input type="number" id="f5" placeholder=""></td>
-                            <td><input type="number" id="o5" placeholder=""></td>
-                            <td><input type="number" id="u5" placeholder=""></td>
+                            <td><input type="number" id="f5" placeholder="" required min="0"
+                                    oninput="validity.valid||(value='');"></td>
+                            <td><input type="number" id="o5" placeholder="" required min="0"
+                                    oninput="validity.valid||(value='');"></td>
+                            <td><input type="number" id="u5" placeholder="" required min="0"
+                                    oninput="validity.valid||(value='');"></td>
                         </tr>
                         <tr>
                             <td>12</td>
                             <td>1.40</td>
-                            <td><input type="number" id="f6" placeholder=""></td>
-                            <td><input type="number" id="o6" placeholder=""></td>
-                            <td><input type="number" id="u6" placeholder=""></td>
+                            <td><input type="number" id="f6" placeholder="" required min="0"
+                                    oninput="validity.valid||(value='');"></td>
+                            <td><input type="number" id="o6" placeholder="" required min="0"
+                                    oninput="validity.valid||(value='');"></td>
+                            <td><input type="number" id="u6" placeholder="" required min="0"
+                                    oninput="validity.valid||(value='');"></td>
                         </tr>
 
                         <tr>
                             <td>14</td>
                             <td>1.10</td>
-                            <td><input type="number" id="f7" placeholder=""></td>
-                            <td><input type="number" id="o7" placeholder=""></td>
-                            <td><input type="number" id="u7" placeholder=""></td>
+                            <td><input type="number" id="f7" placeholder="" required min="0"
+                                    oninput="validity.valid||(value='');"></td>
+                            <td><input type="number" id="o7" placeholder="" required min="0"
+                                    oninput="validity.valid||(value='');"></td>
+                            <td><input type="number" id="u7" placeholder="" required min="0"
+                                    oninput="validity.valid||(value='');"></td>
                         </tr>
                         <tr>
                             <td>pan</td>
                             <td>----</td>
-                            <td><input type="number" id="f8" placeholder=""></td>
-                            <td><input type="number" id="o8" placeholder=""></td>
-                            <td><input type="number" id="u8" placeholder=""></td>
+                            <td><input type="number" id="f8" placeholder="" required min="0"
+                                    oninput="validity.valid||(value='');"></td>
+                            <td><input type="number" id="o8" placeholder="" required min="0"
+                                    oninput="validity.valid||(value='');"></td>
+                            <td><input type="number" id="u8" placeholder="" required min="0"
+                                    oninput="validity.valid||(value='');"></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
             <br>
-            <button href="#results" type="button" class="btn btn-primary" id="btn" onclick="calc()">Calculate</button>
+            <button href="#results" type="submit" class="btn btn-primary" id="btn" onclick="calc()">Calculate</button>
             <br><br>
     </form>
 
     <br>
-    <div id="results" style="display: none">
-        <label id="alabel" style="text-align:left;"></label>
+    <div id="output">
+        <label id="alabel" style="text-align:left; display: none">Observation Table</label>
         <div class="table-responsive">
-            <table id="atable" class="table table-bordered"></table>
+            <table id="atable" class="table table-bordered" style="display:none"></table>
         </div>
-
         <br>
         <div class="d-flex justify-content-center">
-            <div id="hspinner" style="display:none" class="spinner-border text-light" role="status">
+            <div id="hspinner" class="spinner-border text-light" role="status" style="display:none">
                 <span class="visually-hidden">Loading...</span>
             </div>
         </div>
-        <div id="graph" style="height: 303px; width: 100%;"></div>
+        <div id="graph" style="height: 303px; width: 100%; display:none"></div>
         <br>
-        <div id="output" class="alert alert-primary" role="alert">
-            //Result Output
+        <div id="result" class="alert alert-primary" role="alert" style="display:none">
+            //Result
         </div>
         <br>
     </div>
