@@ -18,69 +18,62 @@
   <form>
     <div class="form-group">
       <br>
-      <label for="HS">Flow Rates</label>
+      <label>Flow Rates</label>
 
       <div class="input-group mb-3">
-        <span class="input-group-text" >Q<sub>h</sub></span>
-        <input type="number" class="form-control" id="Mh" placeholder="Hot water flow rate in ml/s" aria-label="Username"
-          aria-describedby="basic-addon1">
+        <span class="input-group-text">Q<sub>h</sub></span>
+        <input type="number" class="form-control" id="Mh" placeholder="Hot water flow rate in ml/s" required>
       </div>
 
       <div class="input-group mb-3">
-        <span class="input-group-text" >Q<sub>c</sub></span>
-        <input type="number" class="form-control" id="Mc" placeholder="Cold water flow rate in ml/s" aria-label="Username"
-          aria-describedby="basic-addon1">
+        <span class="input-group-text">Q<sub>c</sub></span>
+        <input type="number" class="form-control" id="Mc" placeholder="Cold water flow rate in ml/s" required>
       </div>
 
-      <label for="HS">Hot water inlet and outlet Temperatures</label>
+      <label>Hot water inlet and outlet Temperatures</label>
       <div class="input-group mb-3">
-        <span class="input-group-text" >T<sub>1</sub></span>
-        <input type="number" class="form-control" id="T1" placeholder="Hot water inlet temperature ᵒC" aria-label="Username"
-          aria-describedby="basic-addon1">
+        <span class="input-group-text">T<sub>1</sub></span>
+        <input type="number" class="form-control" id="T1" placeholder="Hot water inlet temperature ᵒC" required>
       </div>
 
       <div class="input-group mb-3">
-        <span class="input-group-text" >T<sub>2</sub></span>
-        <input type="number" class="form-control" id="T2" placeholder="Hot water outlet temperature ᵒC" aria-label="Username"
-          aria-describedby="basic-addon1">
+        <span class="input-group-text">T<sub>2</sub></span>
+        <input type="number" class="form-control" id="T2" placeholder="Hot water outlet temperature ᵒC" required>
       </div>
 
-      <label for="HS">Cold water inlet and outlet Temperatures</label>
+      <label>Cold water inlet and outlet Temperatures</label>
       <div class="input-group mb-3">
         <span class="input-group-text" id="basic-addon1">T<sub>3</sub></span>
-        <input type="number" class="form-control" id="T3" placeholder="Cold water inlet temperature ᵒC" aria-label="Username"
-          aria-describedby="basic-addon1">
+        <input type="number" class="form-control" id="T3" placeholder="Cold water inlet temperature ᵒC" required>
       </div>
 
       <div class="input-group mb-3">
         <span class="input-group-text" id="basic-addon1">T<sub>4</sub></span>
-        <input type="number" class="form-control" id="T4" placeholder="Cold water outlet temperature ᵒC" aria-label="Username"
-          aria-describedby="basic-addon1">
+        <input type="number" class="form-control" id="T4" placeholder="Cold water outlet temperature ᵒC" required>
       </div>
     </div>
-    
+
     <br>
-    <button href="#results" type="button" class="btn btn-primary" id="btn" onclick="calc()">Calculate</button>
+    <button type="submit" class="btn btn-primary" onclick="calc()">Calculate</button>
     <br><br>
   </form>
 
   <br>
 
-  <div id="results" style = "display: none">
-    <label style="text-align:left;" for="HS">Results</label>
+  <div id="output">
     <div class="d-flex justify-content-center">
-      <div id="hspinner" class="spinner-border text-light" role="status" style = "display: none">
+      <div id="hspinner" class="spinner-border text-light" role="status" style="display: none">
         <span class="visually-hidden">Loading...</span>
       </div>
     </div>
-    <div id="output" class="alert alert-primary" role="alert" style = "display: none">
+    <div id="result" class="alert alert-primary" role="alert" style="display: none">
       Overall Heat Transfer Coefficient:
     </div>
   </div>
 
   <hr>
   <br>
-  <h5 class="h5">Values Used:</h5>
+  <h5>Values Used:</h5>
   <ol>
     <li>Outer diameter of inner pipe: 0.015 m </li>
     <li>Length of pipe: 1.8 m </li>

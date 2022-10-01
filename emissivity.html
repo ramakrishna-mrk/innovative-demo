@@ -17,77 +17,68 @@
   <hr>
   <form name="form">
     <div class="form-group">
-      <!-- <label for="Temp">Enter Required Data Below</label> -->
       <br>
-      <label for="HS">Steady Steady Temperatures of Black Body</label>
+      <label>Steady Steady Temperatures of Black Body</label>
 
       <div class="input-group mb-3">
         <span class="input-group-text">T<sub>1</sub></span>
-        <input type="number" class="form-control" id="T1" placeholder="Enter Temperature in ᵒC" aria-label="Username"
-          aria-describedby="basic-addon1">
+        <input type="number" class="form-control" id="T1" placeholder="Enter Temperature in ᵒC" required>
       </div>
 
       <div class="input-group mb-3">
         <span class="input-group-text">T<sub>2</sub></span>
-        <input type="number" class="form-control" id="T2" placeholder="Enter Temperature in ᵒC" aria-label="Username"
-          aria-describedby="basic-addon1">
+        <input type="number" class="form-control" id="T2" placeholder="Enter Temperature in ᵒC" required>
       </div>
 
       <div class="input-group mb-3">
         <span class="input-group-text">T<sub>3</sub></span>
-        <input type="number" class="form-control" id="T3" placeholder="Enter Temperature in ᵒC" aria-label="Username"
-          aria-describedby="basic-addon1">
+        <input type="number" class="form-control" id="T3" placeholder="Enter Temperature in ᵒC" required>
       </div>
 
-      <label for="HS">Steady Steady Temperatures of Polished Body</label>
+      <label>Steady Steady Temperatures of Polished Body</label>
       <div class="input-group mb-3">
         <span class="input-group-text">T<sub>4</sub></span>
-        <input type="number" class="form-control" id="T4" placeholder="Enter Temperature in ᵒC" aria-label="Username"
-          aria-describedby="basic-addon1">
+        <input type="number" class="form-control" id="T4" placeholder="Enter Temperature in ᵒC" required>
       </div>
 
       <div class="input-group mb-3">
         <span class="input-group-text">T<sub>5</sub></span>
-        <input type="number" class="form-control" id="T5" placeholder="Enter Temperature in ᵒC" aria-label="Username"
-          aria-describedby="basic-addon1">
+        <input type="number" class="form-control" id="T5" placeholder="Enter Temperature in ᵒC" required>
       </div>
 
       <div class="input-group mb-3">
         <span class="input-group-text">T<sub>6</sub></span>
-        <input type="number" class="form-control" id="T6" placeholder="Enter Temperature in ᵒC" aria-label="Username"
-          aria-describedby="basic-addon1">
+        <input type="number" class="form-control" id="T6" placeholder="Enter Temperature in ᵒC" required>
       </div>
 
-      <label for="HS">Steady Steady Temperature of Chamber</label>
+      <label>Steady Steady Temperature of Chamber</label>
       <div class="input-group mb-3">
         <span class="input-group-text" id="basic-addon1">T<sub>7</sub></span>
-        <input type="number" class="form-control" id="T7" placeholder="Enter Temperature in ᵒC" aria-label="Username"
-          aria-describedby="basic-addon1">
+        <input type="number" class="form-control" id="T7" placeholder="Enter Temperature in ᵒC" required>
       </div>
     </div>
 
     <br>
-    <button href="#results" type="button" class="btn btn-primary" id="btn" onclick="calc()">Calculate</button>
+    <button type="submit" class="btn btn-primary" onclick="calc()">Calculate</button>
     <br><br>
   </form>
 
   <br>
 
-  <div id="results" style = "display: none">
-    <label style="text-align:left;" for="HS">Results</label>
+  <div id="output">
     <div class="d-flex justify-content-center">
-      <div id="hspinner" class="spinner-border text-light" role="status" style = "display: none">
+      <div id="hspinner" class="spinner-border text-light" role="status" style="display: none">
         <span class="visually-hidden">Loading...</span>
       </div>
     </div>
-    <div id="output" class="alert alert-primary" role="alert" style = "display: none">
+    <div id="result" class="alert alert-primary" role="alert" style="display: none">
       Emissivity Test Surface:
     </div>
   </div>
 
   <hr>
   <br>
-  <h5 class="h5">Values Used:</h5>
+  <h5>Values Used:</h5>
   <ol>
     <li>Emissivity of Black body ε<sub>b:</sub> 1</li>
     <li>Stefan's Constant σ: 5.67 * 10 <sup>-8 </sup>w/m<sup>2</sup>K<sup>4</sup></li>

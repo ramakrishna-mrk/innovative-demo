@@ -7,10 +7,24 @@ function calc() {
   var M5 = parseFloat(document.getElementById("M5").value);
   var M6 = parseFloat(document.getElementById("M6").value);
 
-  var output1 = document.getElementById("output1");
-  var output2 = document.getElementById("output2");
-  var dtable = document.getElementById("dtable");
-  var ctable = document.getElementById("ctable");
+  if (
+    M0 !== M0 ||
+    M1 !== M1 ||
+    M2 !== M2 ||
+    M3 !== M3 ||
+    M4 !== M4 ||
+    M5 !== M5 ||
+    M6 !== M6
+  ) {
+    document.getElementById("dtlabel").style.display = "none";
+    document.getElementById("dtable").style.display = "none";
+    document.getElementById("result1").style.display = "none";
+    document.getElementById("ctlabel").style.display = "none";
+    document.getElementById("ctable").style.display = "none";
+    document.getElementById("graph").style.display = "none";
+    document.getElementById("result2").style.display = "none";
+    return;
+  }
 
   var htmlres1 = "";
   var htmlres2 = "";
@@ -131,9 +145,9 @@ function calc() {
     // data[i].CumMassFraction = parseFloat(data[i].CumMassFraction.toFixed(3));
   }
 
-  data[6].OneByDp = 2 * data[5].OneByDp - data[4].OneByDp;
   // var Area = 0.5 * data[0].CumMassFraction * data[0].OneByDp;
   var Area = 0;
+  data[6].OneByDp = 2 * data[5].OneByDp - data[4].OneByDp;
   for (i = 1; i <= data.length - 1; i++) {
     Area +=
       (data[i].CumMassFraction - data[i - 1].CumMassFraction) *
@@ -183,64 +197,45 @@ function calc() {
     htmlct += "</tr>";
   }
 
-  if (!M0 || !M1 || !M2 || !M3 || !M4 || !M5 || !M6) {
-    htmlres1 += "Invalid Data";
-    htmlres2 += "Invalid Data";
-    document.getElementById("graph").style.display = "none";
-  } else {
-    document.getElementById("graph").style.display = "block";
-    htmlres1 +=
-      "<b>Result: Differential Analysis</b><br>The average size (volume surface mean diameter) of the sample is: " +
-      (1 / Total_XibyDpi).toFixed(3) +
-      " mm";
+  htmlres1 +=
+    "<b>Result: Differential Analysis</b><br>The average size (volume surface mean diameter) of the sample is: " +
+    (1 / Total_XibyDpi).toFixed(3) +
+    " mm";
 
-    htmlres2 +=
-      "<b>Result: Cumulative Analysis</b><br>The average size (volume surface mean diameter) of the sample is: " +
-      (1 / Area).toFixed(3) +
-      " mm";
-  }
-  var dtlabel = document.getElementById("dtlabel");
-  dtlabel.innerText = "Differential Analysis";
-  var ctlabel = document.getElementById("ctlabel");
-  ctlabel.innerText = "Cumulative Analysis";
+  htmlres2 +=
+    "<b>Result: Cumulative Analysis</b><br>The average size (volume surface mean diameter) of the sample is: " +
+    (1 / Area).toFixed(3) +
+    " mm";
 
+  var dtable = document.getElementById("dtable");
+  var ctable = document.getElementById("ctable");
+  var result1 = document.getElementById("result1");
+  var result2 = document.getElementById("result2");
   dtable.innerHTML = htmldt;
   ctable.innerHTML = htmlct;
+  result1.innerHTML = htmlres1;
+  result2.innerHTML = htmlres2;
 
-  output1.innerHTML = htmlres1;
-  output2.innerHTML = htmlres2;
+  parent.location = "#output";
 
-  parent.location = "#results";
-  document.getElementById("output1").style.display = "none";
-  document.getElementById("output2").style.display = "none";
+  document.getElementById("dtlabel").style.display = "none";
   document.getElementById("dtable").style.display = "none";
+  document.getElementById("result1").style.display = "none";
+  document.getElementById("ctlabel").style.display = "none";
   document.getElementById("ctable").style.display = "none";
-  document.getElementById("results").style.display = "block";
-  document.getElementById("hspinner1").style.display = "block";
-  document.getElementById("hspinner2").style.display = "block";
-  // document.getElementById("graph").style.display = "none";
-  if (!M0 || !M1 || !M2 || !M3 || !M4 || !M5 || !M6) {
-    setTimeout(function () {
-      document.getElementById("hspinner1").style.display = "none";
-      document.getElementById("hspinner2").style.display = "none";
-      document.getElementById("output1").style.display = "block";
-      document.getElementById("output2").style.display = "block";
-      document.getElementById("graph").style.display = "none";
-    }, 500);
-  } else {
-    setTimeout(function () {
-      document.getElementById("hspinner1").style.display = "none";
-      document.getElementById("hspinner2").style.display = "none";
-      document.getElementById("dtable").style.display = "block";
-      document.getElementById("ctable").style.display = "block";
-      document.getElementById("output1").style.display = "block";
-      document.getElementById("output2").style.display = "block";
-      // document.getElementById("graph").style.display = "block";
-    }, 500);
-  }
+  document.getElementById("graph").style.display = "none";
+  document.getElementById("result2").style.display = "none";
+  document.getElementById("spinner").style.display = "block";
 
-  //Graph
-  if ((!M0 || !M1 || !M2 || !M3 || !M4 || !M5) == false) {
+  setTimeout(function () {
+    document.getElementById("spinner").style.display = "none";
+    document.getElementById("dtlabel").style.display = "block";
+    document.getElementById("dtable").style.display = "block";
+    document.getElementById("result1").style.display = "block";
+    document.getElementById("ctlabel").style.display = "block";
+    document.getElementById("ctable").style.display = "block";
+    document.getElementById("graph").style.display = "block";
+    document.getElementById("result2").style.display = "block";
     var c = new CanvasJS.Chart("graph", {
       zoomEnabled: true,
       animationEnabled: true,
@@ -274,5 +269,5 @@ function calc() {
       ],
     });
     c.render();
-  }
+  }, 500);
 }

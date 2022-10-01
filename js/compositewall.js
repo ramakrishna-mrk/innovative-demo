@@ -7,7 +7,22 @@ function calc() {
   var T6 = parseFloat(document.getElementById("T6").value);
   var T7 = parseFloat(document.getElementById("T7").value);
   var T8 = parseFloat(document.getElementById("T8").value);
-  var Q  = parseFloat(document.getElementById("hs").value);
+  var Q = parseFloat(document.getElementById("hs").value);
+
+  if (
+    T1 !== T1 ||
+    T2 !== T2 ||
+    T3 !== T3 ||
+    T4 !== T4 ||
+    T5 !== T5 ||
+    T6 !== T6 ||
+    T7 !== T7 ||
+    T8 !== T8
+  ) {
+    // document.getElementById("rlabel").style.display = "none";
+    document.getElementById("result").style.display = "none";
+    return;
+  }
 
   var Ta = (T1 + T2) / 2;
   var Tb = (T3 + T4) / 2;
@@ -22,27 +37,23 @@ function calc() {
   var q = Q / A;
   var R_Total = (Ta - Td) / q;
   var K_composite = b / R_Total;
-  
-  const output = document.getElementById("output");
-  if (Ta - Td == 0 || !T1 || !T2 || !T7 || !T8 || !Q) {
-    output.innerHTML = "Invalid Data";
-  } else {
-    output.innerHTML =
-      "Total Thermal Resistance of Composite Slab:  " +
-      Math.abs(R_Total).toFixed(6) + " <sup>o</sup>C/W <br>" + 
-      "Total Thermal Conductivity of Composite slab:  " +
-      Math.abs(K_composite).toFixed(6) + " W/m<sup>o</sup>C";
-  }
 
-  parent.location = "#results";
-  document.getElementById("output").style.display = "none";
-  document.getElementById("results").style.display = "block";
+  var result = document.getElementById("result");
+  result.innerHTML =
+    "<b>Result: </b><br>Total Thermal Resistance of Composite Slab:  " +
+    Math.abs(R_Total).toFixed(6) +
+    " <sup>o</sup>C/W <br>" +
+    "Total Thermal Conductivity of Composite slab:  " +
+    Math.abs(K_composite).toFixed(6) +
+    " W/m<sup>o</sup>C";
+
+  parent.location = "#output";
+  // document.getElementById("rlabel").style.display = "none";
+  document.getElementById("result").style.display = "none";
   document.getElementById("hspinner").style.display = "block";
   setTimeout(function () {
     document.getElementById("hspinner").style.display = "none";
-  }, 500);
-
-  setTimeout(function () {
-    document.getElementById("output").style.display = "block";
+    // document.getElementById("rlabel").style.display = "block";
+    document.getElementById("result").style.display = "block";
   }, 500);
 }

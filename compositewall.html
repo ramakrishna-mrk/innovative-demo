@@ -17,90 +17,81 @@
   <hr>
   <form>
     <div class="form-group">
-      <label for="Temp">Enter Steady State Temperatures from T<sub>1</sub> to T<sub>8</sub> in <sup>o</sup>C</label>
+      <label>Enter Steady State Temperatures from T<sub>1</sub> to T<sub>8</sub> in <sup>o</sup>C</label>
 
       <div class="input-group mb-3">
         <span class="input-group-text" id="basic-addon1">T<sub>1</sub></span>
-        <input type="number" class="form-control" id="T1" placeholder="Enter Temperature in ᵒC" aria-label="Username"
-          aria-describedby="basic-addon1">
+        <input type="number" class="form-control" id="T1" placeholder="Enter Temperature in ᵒC" required>
       </div>
 
       <div class="input-group mb-3">
         <span class="input-group-text" id="basic-addon1">T<sub>2</sub></span>
-        <input type="number" class="form-control" id="T2" placeholder="Enter Temperature in ᵒC" aria-label="Username"
-          aria-describedby="basic-addon1">
+        <input type="number" class="form-control" id="T2" placeholder="Enter Temperature in ᵒC" required>
       </div>
 
       <div class="input-group mb-3">
         <span class="input-group-text" id="basic-addon1">T<sub>3</sub></span>
-        <input type="number" class="form-control" id="T3" placeholder="Enter Temperature in ᵒC" aria-label="Username"
-          aria-describedby="basic-addon1">
+        <input type="number" class="form-control" id="T3" placeholder="Enter Temperature in ᵒC" required>
       </div>
 
       <div class="input-group mb-3">
         <span class="input-group-text" id="basic-addon1">T<sub>4</sub></span>
-        <input type="number" class="form-control" id="T4" placeholder="Enter Temperature in ᵒC" aria-label="Username"
-          aria-describedby="basic-addon1">
+        <input type="number" class="form-control" id="T4" placeholder="Enter Temperature in ᵒC" required>
       </div>
 
       <div class="input-group mb-3">
         <span class="input-group-text" id="basic-addon1">T<sub>5</sub></span>
-        <input type="number" class="form-control" id="T5" placeholder="Enter Temperature in ᵒC" aria-label="Username"
-          aria-describedby="basic-addon1">
+        <input type="number" class="form-control" id="T5" placeholder="Enter Temperature in ᵒC" required>
       </div>
 
       <div class="input-group mb-3">
         <span class="input-group-text" id="basic-addon1">T<sub>6</sub></span>
-        <input type="number" class="form-control" id="T6" placeholder="Enter Temperature in ᵒC" aria-label="Username"
-          aria-describedby="basic-addon1">
+        <input type="number" class="form-control" id="T6" placeholder="Enter Temperature in ᵒC" required>
       </div>
 
       <div class="input-group mb-3">
         <span class="input-group-text" id="basic-addon1">T<sub>7</sub></span>
-        <input type="number" class="form-control" id="T7" placeholder="Enter Temperature in ᵒC" aria-label="Username"
-          aria-describedby="basic-addon1">
+        <input type="number" class="form-control" id="T7" placeholder="Enter Temperature in ᵒC" required>
       </div>
 
       <div class="input-group mb-3">
         <span class="input-group-text" id="basic-addon1">T<sub>8</sub></span>
-        <input type="number" class="form-control" id="T8" placeholder="Enter Temperature in ᵒC" aria-label="Username"
-          aria-describedby="basic-addon1">
+        <input type="number" class="form-control" id="T8" placeholder="Enter Temperature in ᵒC" required>
       </div>
     </div>
 
     <div class="form-group">
-      <label for="HS">Heat Supplied</label>
+      <label>Heat Supplied</label>
       <div class="input-group mb-3">
         <span class="input-group-text" id="basic-addon1">Q (in Watts)</span>
-        <input type="number" class="form-control" id="hs" placeholder="Enter Heat Supplied" aria-label="Username"
-          aria-describedby="basic-addon1">
+        <input type="number" class="form-control" id="hs" placeholder="Enter Heat Supplied" required>
       </div>
     </div>
     <br>
-    <button href="#results" type="button" class="btn btn-primary" id="btn" onclick="calc()">Calculate</button>
+    <button type="submit" class="btn btn-primary" onclick="calc()">Calculate</button>
     <br><br>
   </form>
 
   <br>
 
-  <div id="results" style="display: none">
-    <label style="text-align:left;" for="HS">Results</label>
+  <div id="output">
+    <!-- <label id= "rlabel" style="text-align:left; display:none;">Results</label> -->
     <div class="d-flex justify-content-center">
       <div id="hspinner" class="spinner-border text-light" role="status" style="display: none">
         <span class="visually-hidden">Loading...</span>
       </div>
     </div>
-    <div id="output" class="alert alert-primary" role="alert" style="display: none">
+    <div id="result" class="alert alert-primary" role="alert" style="display:none">
       Total Thermal Resistance of Composite Slab:
       Total Thermal Conductivity of Composite slab:
     </div>
   </div>
 
-  
+
 
   <hr>
   <br>
-  <h5 class="h5">Values Used:</h5>
+  <h5>Values Used:</h5>
   <ol>
     <li>Diameter of Disc: 0.2 m</li>
     <li>Thickness of Slab: 0.044 m</li>

@@ -275,6 +275,6 @@ function calc() {
     ],
   });
   chart.render();
-  }, 500);
+  }, 1000);
   
 }

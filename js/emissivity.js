@@ -7,6 +7,19 @@ function calc() {
   var T6 = parseFloat(document.getElementById("T6").value) + 273;
   var T7 = parseFloat(document.getElementById("T7").value) + 273;
 
+  if (
+    T1 !== T1 ||
+    T2 !== T2 ||
+    T3 !== T3 ||
+    T4 !== T4 ||
+    T5 !== T5 ||
+    T6 !== T6 ||
+    T7 !== T7
+  ) {
+    document.getElementById("result").style.display = "none";
+    return;
+  }
+
   var Tb = (T1 + T2 + T3) / 3;
   var Tp = (T4 + T5 + T6) / 3;
   var Tc = T7;
@@ -16,22 +29,15 @@ function calc() {
   var Tc4 = Tc * Tc * Tc * Tc;
   var Ep = (Tb4 - Tc4) / (Tp4 - Tc4);
 
-  const output = document.getElementById("output");
-  if (Tp4==Tc4 || !Tb || !Tp || !Tc ) {
-    output.innerHTML = "Invalid Data"
-  } else {
-    output.innerHTML = "Emissivity Test Surface: " + Ep.toFixed(3);
-  }
+  var result = document.getElementById("result");
+  result.innerHTML =
+    "<b>Result: </b><br>Emissivity Test Surface: " + Ep.toFixed(3);
 
-  parent.location='#results';
-  document.getElementById("output").style.display = "none";
-  document.getElementById("results").style.display = "block";
+  parent.location = "#output";
+  document.getElementById("result").style.display = "none";
   document.getElementById("hspinner").style.display = "block";
   setTimeout(function () {
     document.getElementById("hspinner").style.display = "none";
-  }, 500);
-
-  setTimeout(function () {
-    document.getElementById("output").style.display = "block";
+    document.getElementById("result").style.display = "block";
   }, 500);
 }

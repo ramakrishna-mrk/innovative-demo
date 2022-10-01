@@ -31,88 +31,80 @@
     <!-- <h3>Cone and Quartering Method</h3> -->
     <form>
         <div class="form-group">
-            <label for="Temp">Enter Mass Retained below on every Mesh</label>
+            <label>Enter Mass Retained below on every Mesh</label>
 
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">Mesh No 14</span>
-                <input type="number" class="form-control" id="M0" placeholder="Enter Mass Retained in grams"
-                    aria-label="Username" aria-describedby="basic-addon1">
+                <input type="number" class="form-control" id="M0" placeholder="Enter Mass Retained in grams" required
+                    min="0" oninput="validity.valid||(value='');">
             </div>
 
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">Mesh No 18</span>
-                <input type="number" class="form-control" id="M1" placeholder="Enter Mass Retained in grams"
-                    aria-label="Username" aria-describedby="basic-addon1">
+                <input type="number" class="form-control" id="M1" placeholder="Enter Mass Retained in grams" required
+                    min="0" oninput="validity.valid||(value='');">
             </div>
 
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">Mesh No 22</span>
-                <input type="number" class="form-control" id="M2" placeholder="Enter Mass Retained in grams"
-                    aria-label="Username" aria-describedby="basic-addon1">
+                <input type="number" class="form-control" id="M2" placeholder="Enter Mass Retained in grams" required
+                    min="0" oninput="validity.valid||(value='');">
             </div>
 
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">Mesh No 36</span>
-                <input type="number" class="form-control" id="M3" placeholder="Enter Mass Retained in grams"
-                    aria-label="Username" aria-describedby="basic-addon1">
+                <input type="number" class="form-control" id="M3" placeholder="Enter Mass Retained in grams" required
+                    min="0" oninput="validity.valid||(value='');">
             </div>
 
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">Mesh No 44</span>
-                <input type="number" class="form-control" id="M4" placeholder="Enter Mass Retained in grams"
-                    aria-label="Username" aria-describedby="basic-addon1">
+                <input type="number" class="form-control" id="M4" placeholder="Enter Mass Retained in grams" required
+                    min="0" oninput="validity.valid||(value='');">
             </div>
 
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">Mesh No 60</span>
-                <input type="number" class="form-control" id="M5" placeholder="Enter Mass Retained in grams"
-                    aria-label="Username" aria-describedby="basic-addon1">
+                <input type="number" class="form-control" id="M5" placeholder="Enter Mass Retained in grams" required
+                    min="0" oninput="validity.valid||(value='');">
             </div>
 
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">---- Pan ---- </span>
-                <input type="number" class="form-control" id="M6" placeholder="Enter Mass Retained in grams"
-                    aria-label="Username" aria-describedby="basic-addon1">
+                <input type="number" class="form-control" id="M6" placeholder="Enter Mass Retained in grams" required
+                    min="0" oninput="validity.valid||(value='');">
             </div>
 
             <br>
-            <button href="#results" type="button" class="btn btn-primary" id="btn" onclick="calc()">Calculate</button>
+            <button type="submit" class="btn btn-primary" onclick="calc()">Calculate</button>
             <br><br>
     </form>
 
     <br>
-    <div id="results" style="display: none">
-        <label id="dtlabel" style="text-align:left;"></label>
+    <div id="output">
+        <label id="dtlabel" style="text-align:left;display: none">Differential Analysis</label>
         <div class="table-responsive">
-            <table id="dtable" class="table table-bordered"></table>
+            <table id="dtable" class="table table-bordered" style="display: none"></table>
         </div>
-
         <br>
-
+        <div id="result1" class="alert alert-primary" role="alert" style="display:none">
+            //Result1
+        </div>
         <div class="d-flex justify-content-center">
-            <div id="hspinner1" style="display:none" class="spinner-border text-light" role="status">
+            <div id="spinner" class="spinner-border text-light" role="status" style="display:none">
                 <span class="visually-hidden">Loading...</span>
             </div>
         </div>
-
-        <div id="output1" class="alert alert-primary" role="alert">
-            //Result Output
-        </div>
         <br>
-        <label id="ctlabel" style="text-align:left;"></label>
+        <label id="ctlabel" style="text-align:left;display:none">Cumulative Analysis</label>
         <div class="table-responsive">
-            <table id="ctable" class="table table-bordered"></table>
+            <table id="ctable" class="table table-bordered" style="display:none"></table>
         </div>
         <br>
-        <div class="d-flex justify-content-center">
-            <div id="hspinner2" style="display:none" class="spinner-border text-light" role="status">
-                <span class="visually-hidden">Loading...</span>
-            </div>
-        </div>
-        <div id="graph" style="height: 303px; width: 100%;"></div>
+        <div id="graph" style="height: 303px; width: 100%;display:none"></div>
         <br>
-        <div id="output2" class="alert alert-primary" role="alert">
-            //Result Output
+        <div id="result2" class="alert alert-primary" role="alert" style="display:none">
+            //Result2
         </div>
     </div>
 

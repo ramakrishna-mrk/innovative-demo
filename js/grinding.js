@@ -4,9 +4,6 @@ function calc() {
   var M6 = parseFloat(document.getElementById("M6").value);
   var M8 = parseFloat(document.getElementById("M8").value);
 
-  var result = document.getElementById("result");
-  var gtable = document.getElementById("gtable");
-
   if (M2 !== M2 || M4 !== M4 || M6 !== M6 || M8 !== M8) {
     document.getElementById("glabel").style.display = "none";
     document.getElementById("gtable").style.display = "none";
@@ -102,6 +99,8 @@ function calc() {
   }
 
   // label, table, result, graph Setting
+  var result = document.getElementById("result");
+  var gtable = document.getElementById("gtable");
   gtable.innerHTML = htmlgt;
   result.innerHTML = htmlres;
 
@@ -109,66 +108,66 @@ function calc() {
   function compareDataPointYAscend(dataPoint1, dataPoint2) {
     return dataPoint1.y - dataPoint2.y;
   }
-  if (m !== -1) {
-    document.getElementById("graph").style.display = "block";
-    var c = new CanvasJS.Chart("graph", {
-      zoomEnabled: true,
-      animationEnabled: true,
-      title: {
-        text: "Graph",
-      },
-      axisX: {
-        title: "Cumulative Time",
-        stripLines: [
-          {
-            value: x_time,
-          },
-        ],
-      },
-      axisY: {
-        title: "Cumulative Mass Percent",
-        stripLines: [
-          {
-            value: y_80,
-          },
-        ],
-      },
-      data: [
-        {
-          type: "line",
-          xValueType: "number",
-          dataPoints: [
-            { x: data[0].Cum_Time, y: data[0].Cum_Mass_Percent },
-            { x: data[1].Cum_Time, y: data[1].Cum_Mass_Percent },
-            { x: data[2].Cum_Time, y: data[2].Cum_Mass_Percent },
-            {
-              x: x_time,
-              y: y_80,
-              indexLabel: "" + x_time.toFixed(3),
-              markerType: "circle",
-              markerColor: "#F08080",
-            },
-            { x: data[3].Cum_Time, y: data[3].Cum_Mass_Percent },
-          ],
-        },
-      ],
-    });
-    c.options.data[0].dataPoints.sort(compareDataPointYAscend);
-    c.render();
-  } else {
-    document.getElementById("graph").style.display = "none";
-  }
 
   // Display Setting
   parent.location = "#output";
-  document.getElementById("glabel").style.display = "block";
+  document.getElementById("glabel").style.display = "none";
   document.getElementById("gtable").style.display = "none";
+  document.getElementById("graph").style.display = "none";
   document.getElementById("result").style.display = "none";
   document.getElementById("hspinner").style.display = "block";
 
   setTimeout(function () {
     document.getElementById("hspinner").style.display = "none";
+    document.getElementById("glabel").style.display = "block";
     document.getElementById("gtable").style.display = "block";
     document.getElementById("result").style.display = "block";
-  }, 500);
+    if (m !== -1) {
+      document.getElementById("graph").style.display = "block";
+      var c = new CanvasJS.Chart("graph", {
+        zoomEnabled: true,
+        animationEnabled: true,
+        title: {
+          text: "Graph",
+        },
+        axisX: {
+          title: "Cumulative Time",
+          stripLines: [
+            {
+              value: x_time,
+            },
+          ],
+        },
+        axisY: {
+          title: "Cumulative Mass Percent",
+          stripLines: [
+            {
+              value: y_80,
+            },
+          ],
+        },
+        data: [
+          {
+            type: "line",
+            xValueType: "number",
+            dataPoints: [
+              { x: data[0].Cum_Time, y: data[0].Cum_Mass_Percent },
+              { x: data[1].Cum_Time, y: data[1].Cum_Mass_Percent },
+              { x: data[2].Cum_Time, y: data[2].Cum_Mass_Percent },
+              {
+                x: x_time,
+                y: y_80,
+                indexLabel: "" + x_time.toFixed(3),
+                markerType: "circle",
+                markerColor: "#F08080",
+              },
+              { x: data[3].Cum_Time, y: data[3].Cum_Mass_Percent },
+            ],
+          },
+        ],
+      });
+      c.options.data[0].dataPoints.sort(compareDataPointYAscend);
+      c.render();
+    } 
+  }, 1000);
 }
