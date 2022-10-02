@@ -168,6 +168,6 @@ function calc() {
       });
       c.options.data[0].dataPoints.sort(compareDataPointYAscend);
       c.render();
-    } 
+    }
   }, 1000);
 }
