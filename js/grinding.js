@@ -58,8 +58,8 @@ function calc() {
 
   //Finding out cum time for 80% cum mass percent:
   var m = -1;
-  var xi = 0;
-  for (; xi < data.length; xi++) {
+  // var xi = 1;
+  for (xi=1; xi < data.length; xi++) {
     if (data[xi].Cum_Mass_Percent >= 80) {
       m =
         (data[xi].Cum_Mass_Percent - data[xi - 1].Cum_Mass_Percent) /
@@ -74,8 +74,8 @@ function calc() {
 
   htmlgt += "<tr>";
   htmlgt += "<th>Time (min)</th>";
-  htmlgt += "<th>Cumulative Time</th>";
-  htmlgt += "<th>Mass of -52 Fraction</th>";
+  htmlgt += "<th>Cumulative Time (min)</th>";
+  htmlgt += "<th>Mass of -52 Fraction (grams)</th>";
   htmlgt += "<th>Cumulative Mass of -52 fraction</th>";
   htmlgt += "<th>Cumulative Mass percent of -52 fraction</th>";
   htmlgt += "</tr>";

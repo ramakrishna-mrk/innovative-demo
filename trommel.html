@@ -2,150 +2,204 @@
 <html lang="en" dir="ltr">
 
 <head>
-    <meta charset="utf-8">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-    <title>Effectiveness of Trommel</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+                integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+                crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
+        <title>Effectiveness of Trommel</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
-    <div class="top-container">
-        <h2>Effectiveness of Trommel</h2>
-    </div>
-
-    <hr>
-
-    <form onsubmit="return false">
-        <div class="form-group">
-            <label>Enter mass of material retained in every mesh for feed, overflow & underflow</label>
-            <div class="table-responsive">
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th rowspan="2">Mesh No</th>
-                            <th rowspan="2">Mesh Size D<sub>pi</sub> (mm)</th>
-                            <th colspan="3">Mass of Material retained</th>
-                        </tr>
-                        <tr>
-                            <th>Feed</th>
-                            <th>Overflow</th>
-                            <th>Underflow</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>4</td>
-                            <td>4.00</td>
-                            <td><input type="number" id="f1" placeholder="" required min="0"
-                                    oninput="validity.valid||(value='');"></td>
-                            <td><input type="number" id="o1" placeholder="" required min="0"
-                                    oninput="validity.valid||(value='');"></td>
-                            <td><input type="number" id="u1" placeholder="" required min="0"
-                                    oninput="validity.valid||(value='');"></td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>3.35</td>
-                            <td><input type="number" id="f2" placeholder="" required min="0"
-                                    oninput="validity.valid||(value='');"></td>
-                            <td><input type="number" id="o2" placeholder="" required min="0"
-                                    oninput="validity.valid||(value='');"></td>
-                            <td><input type="number" id="u2" placeholder="" required min="0"
-                                    oninput="validity.valid||(value='');"></td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td>2.80</td>
-                            <td><input type="number" id="f3" placeholder="" required min="0"
-                                    oninput="validity.valid||(value='');"></td>
-                            <td><input type="number" id="o3" placeholder="" required min="0"
-                                    oninput="validity.valid||(value='');"></td>
-                            <td><input type="number" id="u3" placeholder="" required min="0"
-                                    oninput="validity.valid||(value='');"></td>
-                        </tr>
-                        <tr>
-                            <td>7</td>
-                            <td>2.36</td>
-                            <td><input type="number" id="f4" placeholder="" required min="0"
-                                    oninput="validity.valid||(value='');"></td>
-                            <td><input type="number" id="o4" placeholder="" required min="0"
-                                    oninput="validity.valid||(value='');"></td>
-                            <td><input type="number" id="u4" placeholder="" required min="0"
-                                    oninput="validity.valid||(value='');"></td>
-                        </tr>
-                        <tr>
-                            <td>8</td>
-                            <td>2.00</td>
-                            <td><input type="number" id="f5" placeholder="" required min="0"
-                                    oninput="validity.valid||(value='');"></td>
-                            <td><input type="number" id="o5" placeholder="" required min="0"
-                                    oninput="validity.valid||(value='');"></td>
-                            <td><input type="number" id="u5" placeholder="" required min="0"
-                                    oninput="validity.valid||(value='');"></td>
-                        </tr>
-                        <tr>
-                            <td>12</td>
-                            <td>1.40</td>
-                            <td><input type="number" id="f6" placeholder="" required min="0"
-                                    oninput="validity.valid||(value='');"></td>
-                            <td><input type="number" id="o6" placeholder="" required min="0"
-                                    oninput="validity.valid||(value='');"></td>
-                            <td><input type="number" id="u6" placeholder="" required min="0"
-                                    oninput="validity.valid||(value='');"></td>
-                        </tr>
-
-                        <tr>
-                            <td>14</td>
-                            <td>1.10</td>
-                            <td><input type="number" id="f7" placeholder="" required min="0"
-                                    oninput="validity.valid||(value='');"></td>
-                            <td><input type="number" id="o7" placeholder="" required min="0"
-                                    oninput="validity.valid||(value='');"></td>
-                            <td><input type="number" id="u7" placeholder="" required min="0"
-                                    oninput="validity.valid||(value='');"></td>
-                        </tr>
-                        <tr>
-                            <td>pan</td>
-                            <td>----</td>
-                            <td><input type="number" id="f8" placeholder="" required min="0"
-                                    oninput="validity.valid||(value='');"></td>
-                            <td><input type="number" id="o8" placeholder="" required min="0"
-                                    oninput="validity.valid||(value='');"></td>
-                            <td><input type="number" id="u8" placeholder="" required min="0"
-                                    oninput="validity.valid||(value='');"></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <br>
-            <button type="submit" class="btn btn-primary" onclick="calc()">Calculate</button>
-            <br><br>
-    </form>
-
-    <br>
-    <div id="output">
-        <label id="alabel" style="text-align:left; display: none">Observation Table</label>
-        <div class="table-responsive">
-            <table id="atable" class="table table-bordered" style="display:none"></table>
+        <div class="col-12 bg-primary fs-6 p-3 align-items-center text-center badge">
+                <span class="">EFFECTIVENESS OF TROMMEL</span>
         </div>
-        <br>
-        <div class="d-flex justify-content-center">
-            <div id="hspinner" class="spinner-border text-light" role="status" style="display:none">
-                <span class="visually-hidden">Loading...</span>
-            </div>
-        </div>
-        <div id="graph" style="height: 303px; width: 100%; display:none"></div>
-        <br>
-        <div id="result" class="alert alert-primary" role="alert" style="display:none">
-            //Result
-        </div>
-        <br>
-    </div>
+        <hr>
+        <div>
+                <div class="border rounded p-2 mb-2 shadow-sm">
+                        <form onsubmit="return false">
+                                <div class="form-group">
+                                        <label>Enter mass of material retained in every mesh for feed, overflow &
+                                                underflow</label>
+                                        <div class="table-responsive">
+                                                <table class="table table-striped table-bordered w-100 ">
+                                                        <thead>
+                                                                <tr>
+                                                                        <th rowspan="2">Mesh No</th>
+                                                                        <th rowspan="2">Mesh Size D<sub>pi</sub> (mm)
+                                                                        </th>
+                                                                        <th colspan="3">Mass of Material retained</th>
+                                                                </tr>
+                                                                <tr>
+                                                                        <th>Feed</th>
+                                                                        <th>Overflow</th>
+                                                                        <th>Underflow</th>
+                                                                </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                                <tr>
+                                                                        <td>4</td>
+                                                                        <td>4.00</td>
+                                                                        <td><input type="number" id="f1" placeholder=""
+                                                                                        required min="0"
+                                                                                        oninput="validity.valid||(value='');">
+                                                                        </td>
+                                                                        <td><input type="number" id="o1" placeholder=""
+                                                                                        required min="0"
+                                                                                        oninput="validity.valid||(value='');">
+                                                                        </td>
+                                                                        <td><input type="number" id="u1" placeholder=""
+                                                                                        required min="0"
+                                                                                        oninput="validity.valid||(value='');">
+                                                                        </td>
+                                                                </tr>
+                                                                <tr>
+                                                                        <td>5</td>
+                                                                        <td>3.35</td>
+                                                                        <td><input type="number" id="f2" placeholder=""
+                                                                                        required min="0"
+                                                                                        oninput="validity.valid||(value='');">
+                                                                        </td>
+                                                                        <td><input type="number" id="o2" placeholder=""
+                                                                                        required min="0"
+                                                                                        oninput="validity.valid||(value='');">
+                                                                        </td>
+                                                                        <td><input type="number" id="u2" placeholder=""
+                                                                                        required min="0"
+                                                                                        oninput="validity.valid||(value='');">
+                                                                        </td>
+                                                                </tr>
+                                                                <tr>
+                                                                        <td>6</td>
+                                                                        <td>2.80</td>
+                                                                        <td><input type="number" id="f3" placeholder=""
+                                                                                        required min="0"
+                                                                                        oninput="validity.valid||(value='');">
+                                                                        </td>
+                                                                        <td><input type="number" id="o3" placeholder=""
+                                                                                        required min="0"
+                                                                                        oninput="validity.valid||(value='');">
+                                                                        </td>
+                                                                        <td><input type="number" id="u3" placeholder=""
+                                                                                        required min="0"
+                                                                                        oninput="validity.valid||(value='');">
+                                                                        </td>
+                                                                </tr>
+                                                                <tr>
+                                                                        <td>7</td>
+                                                                        <td>2.36</td>
+                                                                        <td><input type="number" id="f4" placeholder=""
+                                                                                        required min="0"
+                                                                                        oninput="validity.valid||(value='');">
+                                                                        </td>
+                                                                        <td><input type="number" id="o4" placeholder=""
+                                                                                        required min="0"
+                                                                                        oninput="validity.valid||(value='');">
+                                                                        </td>
+                                                                        <td><input type="number" id="u4" placeholder=""
+                                                                                        required min="0"
+                                                                                        oninput="validity.valid||(value='');">
+                                                                        </td>
+                                                                </tr>
+                                                                <tr>
+                                                                        <td>8</td>
+                                                                        <td>2.00</td>
+                                                                        <td><input type="number" id="f5" placeholder=""
+                                                                                        required min="0"
+                                                                                        oninput="validity.valid||(value='');">
+                                                                        </td>
+                                                                        <td><input type="number" id="o5" placeholder=""
+                                                                                        required min="0"
+                                                                                        oninput="validity.valid||(value='');">
+                                                                        </td>
+                                                                        <td><input type="number" id="u5" placeholder=""
+                                                                                        required min="0"
+                                                                                        oninput="validity.valid||(value='');">
+                                                                        </td>
+                                                                </tr>
+                                                                <tr>
+                                                                        <td>12</td>
+                                                                        <td>1.40</td>
+                                                                        <td><input type="number" id="f6" placeholder=""
+                                                                                        required min="0"
+                                                                                        oninput="validity.valid||(value='');">
+                                                                        </td>
+                                                                        <td><input type="number" id="o6" placeholder=""
+                                                                                        required min="0"
+                                                                                        oninput="validity.valid||(value='');">
+                                                                        </td>
+                                                                        <td><input type="number" id="u6" placeholder=""
+                                                                                        required min="0"
+                                                                                        oninput="validity.valid||(value='');">
+                                                                        </td>
+                                                                </tr>
 
-    <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-    <script src="js/trommel.js"></script>
+                                                                <tr>
+                                                                        <td>14</td>
+                                                                        <td>1.10</td>
+                                                                        <td><input type="number" id="f7" placeholder=""
+                                                                                        required min="0"
+                                                                                        oninput="validity.valid||(value='');">
+                                                                        </td>
+                                                                        <td><input type="number" id="o7" placeholder=""
+                                                                                        required min="0"
+                                                                                        oninput="validity.valid||(value='');">
+                                                                        </td>
+                                                                        <td><input type="number" id="u7" placeholder=""
+                                                                                        required min="0"
+                                                                                        oninput="validity.valid||(value='');">
+                                                                        </td>
+                                                                </tr>
+                                                                <tr>
+                                                                        <td>pan</td>
+                                                                        <td>----</td>
+                                                                        <td><input type="number" id="f8" placeholder=""
+                                                                                        required min="0"
+                                                                                        oninput="validity.valid||(value='');">
+                                                                        </td>
+                                                                        <td><input type="number" id="o8" placeholder=""
+                                                                                        required min="0"
+                                                                                        oninput="validity.valid||(value='');">
+                                                                        </td>
+                                                                        <td><input type="number" id="u8" placeholder=""
+                                                                                        required min="0"
+                                                                                        oninput="validity.valid||(value='');">
+                                                                        </td>
+                                                                </tr>
+                                                        </tbody>
+                                                </table>
+                                        </div>
+                                        <br>
+                                        <button type="submit" class="btn btn-primary"
+                                                onclick="calc()">Calculate</button>
+                                        <br><br>
+                        </form>
+                </div>
+        </div>
+
+        <br>
+        <div id="output">
+                <label id="alabel" style="text-align:left; display: none">Observation Table</label>
+                <div class="table-responsive">
+                        <table id="atable" class="table table-striped table-bordered" style="display:none"></table>
+                </div>
+                <br>
+                <div class="d-flex justify-content-center">
+                        <div id="hspinner" class="spinner-border text-dark" role="status" style="display:none">
+                                <span class="visually-hidden">Loading...</span>
+                        </div>
+                </div>
+                <div id="graph" style="height: 303px; width: 100%; display:none"></div>
+                <br>
+                <div id="result" class="alert alert-primary" role="alert" style="display:none">
+                        //Result
+                </div>
+                <br>
+        </div>
+
+        <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+        <script src="js/trommel.js"></script>
 </body>
 
 </html>

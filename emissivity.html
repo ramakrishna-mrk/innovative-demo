@@ -11,79 +11,82 @@
 </head>
 
 <body>
-  <div class="top-container">
-    <h2>Emissivity Measurement Apparatus</h2>
+  <div class="col-12 bg-primary fs-6 p-3 align-items-center text-center badge">
+    <span class="">EMISSIVITY MEASUREMENT APPARATUS</span>
   </div>
   <hr>
-  <form onsubmit="return false">
-    <div class="form-group">
-      <br>
-      <label>Steady Steady Temperatures of Black Body</label>
+  <div>
+    <div class="border rounded p-4 mb-2 shadow-sm">
+      <form onsubmit="return false">
+        <div class="form-group">
+          <label>Steady Steady Temperatures of Black Body</label>
 
-      <div class="input-group mb-3">
-        <span class="input-group-text">T<sub>1</sub></span>
-        <input type="number" class="form-control" id="T1" placeholder="Enter Temperature in ᵒC" required>
-      </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text">T<sub>1</sub></span>
+            <input type="number" class="form-control" id="T1" placeholder="Enter Temperature in ᵒC" required>
+          </div>
 
-      <div class="input-group mb-3">
-        <span class="input-group-text">T<sub>2</sub></span>
-        <input type="number" class="form-control" id="T2" placeholder="Enter Temperature in ᵒC" required>
-      </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text">T<sub>2</sub></span>
+            <input type="number" class="form-control" id="T2" placeholder="Enter Temperature in ᵒC" required>
+          </div>
 
-      <div class="input-group mb-3">
-        <span class="input-group-text">T<sub>3</sub></span>
-        <input type="number" class="form-control" id="T3" placeholder="Enter Temperature in ᵒC" required>
-      </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text">T<sub>3</sub></span>
+            <input type="number" class="form-control" id="T3" placeholder="Enter Temperature in ᵒC" required>
+          </div>
 
-      <label>Steady Steady Temperatures of Polished Body</label>
-      <div class="input-group mb-3">
-        <span class="input-group-text">T<sub>4</sub></span>
-        <input type="number" class="form-control" id="T4" placeholder="Enter Temperature in ᵒC" required>
-      </div>
+          <label>Steady Steady Temperatures of Polished Body</label>
+          <div class="input-group mb-3">
+            <span class="input-group-text">T<sub>4</sub></span>
+            <input type="number" class="form-control" id="T4" placeholder="Enter Temperature in ᵒC" required>
+          </div>
 
-      <div class="input-group mb-3">
-        <span class="input-group-text">T<sub>5</sub></span>
-        <input type="number" class="form-control" id="T5" placeholder="Enter Temperature in ᵒC" required>
-      </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text">T<sub>5</sub></span>
+            <input type="number" class="form-control" id="T5" placeholder="Enter Temperature in ᵒC" required>
+          </div>
 
-      <div class="input-group mb-3">
-        <span class="input-group-text">T<sub>6</sub></span>
-        <input type="number" class="form-control" id="T6" placeholder="Enter Temperature in ᵒC" required>
-      </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text">T<sub>6</sub></span>
+            <input type="number" class="form-control" id="T6" placeholder="Enter Temperature in ᵒC" required>
+          </div>
 
-      <label>Steady Steady Temperature of Chamber</label>
-      <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1">T<sub>7</sub></span>
-        <input type="number" class="form-control" id="T7" placeholder="Enter Temperature in ᵒC" required>
-      </div>
+          <label>Steady Steady Temperature of Chamber</label>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">T<sub>7</sub></span>
+            <input type="number" class="form-control" id="T7" placeholder="Enter Temperature in ᵒC" required>
+          </div>
+        </div>
+
+        <br>
+        <button type="submit" class="btn btn-primary" onclick="calc()">Calculate</button>
+        <br><br>
+      </form>
     </div>
-
-    <br>
-    <button type="submit" class="btn btn-primary" onclick="calc()">Calculate</button>
-    <br><br>
-  </form>
-
+  </div>
   <br>
 
   <div id="output">
     <div class="d-flex justify-content-center">
-      <div id="hspinner" class="spinner-border text-light" role="status" style="display: none">
+      <div id="hspinner" class="spinner-border text-dark" role="status" style="display: none">
         <span class="visually-hidden">Loading...</span>
       </div>
     </div>
     <div id="result" class="alert alert-primary" role="alert" style="display: none">
-      Emissivity Test Surface:
+      Emissivity of Test Surface:
     </div>
   </div>
 
   <hr>
-  <br>
-  <h5>Values Used:</h5>
-  <ol>
-    <li>Emissivity of Black body ε<sub>b:</sub> 1</li>
-    <li>Stefan's Constant σ: 5.67 * 10 <sup>-8 </sup>w/m<sup>2</sup>K<sup>4</sup></li>
-    <li>Diameter of the circular plate: 0.15 m</li>
-  </ol>
+  <div class="alert alert-light" role="alert">
+    <h5>Values Used:</h5>
+    <ol>
+      <li>Emissivity of Black body ε<sub>b:</sub> 1</li>
+      <li>Stefan's Constant σ: 5.67 * 10 <sup>-8 </sup>w/m<sup>2</sup>K<sup>4</sup></li>
+      <li>Diameter of the circular plate: 0.15 m</li>
+    </ol>
+  </div>
   <script src="js/emissivity.js"></script>
 </body>
 

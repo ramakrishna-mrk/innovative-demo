@@ -11,58 +11,61 @@
 </head>
 
 <body>
-  <div class="top-container">
-    <h2>Counter Flow Double Pipe Heat Exchanger</h2>
+  <div class="col-12 bg-primary fs-6 p-3 align-items-center text-center badge">
+    <span class="">COUNTER FLOW DOUBLE PIPE HEAT EXCHANGER</span>
   </div>
   <hr>
-  <form onsubmit="return false">
-    <div class="form-group">
-      <br>
-      <label>Flow Rates</label>
+  <div>
+    <div class="border rounded p-4 mb-2 shadow-sm">
+      <form onsubmit="return false">
+        <div class="form-group">
+          <br>
+          <label>Flow Rates</label>
 
-      <div class="input-group mb-3">
-        <span class="input-group-text">Q<sub>h</sub></span>
-        <input type="number" class="form-control" id="Mh" placeholder="Hot water flow rate in ml/s" required>
-      </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text">Q<sub>h</sub></span>
+            <input type="number" class="form-control" id="Mh" placeholder="Hot water flow rate in ml/s" required>
+          </div>
 
-      <div class="input-group mb-3">
-        <span class="input-group-text">Q<sub>c</sub></span>
-        <input type="number" class="form-control" id="Mc" placeholder="Cold water flow rate in ml/s" required>
-      </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text">Q<sub>c</sub></span>
+            <input type="number" class="form-control" id="Mc" placeholder="Cold water flow rate in ml/s" required>
+          </div>
 
-      <label>Hot water inlet and outlet Temperatures</label>
-      <div class="input-group mb-3">
-        <span class="input-group-text">T<sub>1</sub></span>
-        <input type="number" class="form-control" id="T1" placeholder="Hot water inlet temperature ᵒC" required>
-      </div>
+          <label>Hot water inlet and outlet Temperatures</label>
+          <div class="input-group mb-3">
+            <span class="input-group-text">T<sub>1</sub></span>
+            <input type="number" class="form-control" id="T1" placeholder="Hot water inlet temperature ᵒC" required>
+          </div>
 
-      <div class="input-group mb-3">
-        <span class="input-group-text">T<sub>2</sub></span>
-        <input type="number" class="form-control" id="T2" placeholder="Hot water outlet temperature ᵒC" required>
-      </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text">T<sub>2</sub></span>
+            <input type="number" class="form-control" id="T2" placeholder="Hot water outlet temperature ᵒC" required>
+          </div>
 
-      <label>Cold water inlet and outlet Temperatures</label>
-      <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1">T<sub>3</sub></span>
-        <input type="number" class="form-control" id="T3" placeholder="Cold water inlet temperature ᵒC" required>
-      </div>
+          <label>Cold water inlet and outlet Temperatures</label>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">T<sub>3</sub></span>
+            <input type="number" class="form-control" id="T3" placeholder="Cold water inlet temperature ᵒC" required>
+          </div>
 
-      <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1">T<sub>4</sub></span>
-        <input type="number" class="form-control" id="T4" placeholder="Cold water outlet temperature ᵒC" required>
-      </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">T<sub>4</sub></span>
+            <input type="number" class="form-control" id="T4" placeholder="Cold water outlet temperature ᵒC" required>
+          </div>
+        </div>
+
+        <br>
+        <button type="submit" class="btn btn-primary" onclick="calc()">Calculate</button>
+        <br><br>
+      </form>
     </div>
-
-    <br>
-    <button type="submit" class="btn btn-primary" onclick="calc()">Calculate</button>
-    <br><br>
-  </form>
-
+  </div>
   <br>
 
   <div id="output">
     <div class="d-flex justify-content-center">
-      <div id="hspinner" class="spinner-border text-light" role="status" style="display: none">
+      <div id="hspinner" class="spinner-border text-dark" role="status" style="display: none">
         <span class="visually-hidden">Loading...</span>
       </div>
     </div>
@@ -72,12 +75,13 @@
   </div>
 
   <hr>
-  <br>
-  <h5>Values Used:</h5>
-  <ol>
-    <li>Outer diameter of inner pipe: 0.015 m </li>
-    <li>Length of pipe: 1.8 m </li>
-  </ol>
+  <div class="alert alert-light" role="alert">
+    <h5>Values Used:</h5>
+    <ol>
+      <li>Outer diameter of inner pipe: 0.015 m </li>
+      <li>Length of pipe: 1.8 m </li>
+    </ol>
+  </div>
   <script src="js/counterflow.js">
 
   </script>

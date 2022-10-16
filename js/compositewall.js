@@ -40,10 +40,10 @@ function calc() {
 
   var result = document.getElementById("result");
   result.innerHTML =
-    "<b>Result: </b><br>Total Thermal Resistance of Composite Slab:  " +
+    "<b>Result: </b> <br>  • Total Thermal Resistance of Composite Slab:  " +
     Math.abs(R_Total).toFixed(6) +
     " <sup>o</sup>C/W <br>" +
-    "Total Thermal Conductivity of Composite slab:  " +
+    "• Total Thermal Conductivity of Composite slab:  " +
     Math.abs(K_composite).toFixed(6) +
     " W/m<sup>o</sup>C";
 
