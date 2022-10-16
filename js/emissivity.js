@@ -31,7 +31,7 @@ function calc() {
 
   var result = document.getElementById("result");
   result.innerHTML =
-    "<b>Result: </b><br>Emissivity Test Surface: " + Ep.toFixed(3);
+    "<b>Result: </b><br>Emissivity of Test Surface: " + Ep.toFixed(3);
 
   parent.location = "#output";
   document.getElementById("result").style.display = "none";

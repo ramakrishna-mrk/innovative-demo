@@ -58,8 +58,7 @@ function calc() {
 
   //Finding out cum time for 80% cum mass percent:
   var m = -1;
-  var xi = 0;
-  for (; xi < data.length; xi++) {
+  for (xi=1; xi < data.length; xi++) {
     if (data[xi].Cum_Mass_Percent >= 80) {
       m =
         (data[xi].Cum_Mass_Percent - data[xi - 1].Cum_Mass_Percent) /
